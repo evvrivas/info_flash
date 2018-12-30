@@ -1,0 +1,189 @@
+{% load staticfiles %}   
+{% load thumbnail %} 
+
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+         
+    <link href='{% static  "bootstrap/css/bootstrap.min.css" %}' rel="stylesheet" media="screen"'></script>
+    <link href='{% static  "bootstrap/css/jquery.dataTables.css" %}' rel="stylesheet"></script>
+    <link href='{% static  "css/style.css" %}' rel="stylesheet"></script>
+
+    <link href='{% static  "misjs/miccs.css" %}' rel="stylesheet"></script>
+
+
+    
+
+
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  
+  
+</head>
+
+
+
+<body> 
+  
+
+<div class="panel panel-info">    
+
+     <div class="panel-heading">
+
+            <div class="col-md-4"> 
+            </div>
+
+            <div class="col-md-4"> 
+
+                 <center>
+
+                                                   
+                          <form action="/busqueda/" method="post">
+                                       {% csrf_token %}                                                  
+                                       <center><img src='{% static "logo_ecopes.gif" %}' alt='img' />   
+                                      
+                                       
+                          </form>
+                 
+                
+                          {%  if user.is_authenticated %}          
+                                  <li> Bienvenido .!.{{ user.username }}  </li>
+                          {% endif %}
+                        
+                   </center>
+
+
+             </div>
+
+             <div class="col-md-4"> 
+             </div>
+                
+              
+            
+      </div>
+
+
+
+
+<div class="panel-body">    
+
+ <div class="row"> 
+
+ <div class="col-md-12"> 
+
+      <center>  <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle"
+            data-toggle="dropdown">Inicio <span class="caret"></span></button>
+                               
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/">Ir aL inicio </a></li>
+                <li><a href="/informacion">Informacion Basica </a></li>
+                                        
+               {%  if user.is_authenticated %}          
+                    <li><a href="/accounts/logout/">Cerrar la sesión</a></li>
+                    <br>
+               {%  else  %}                                 
+                   <li><a href="/accounts/login">Entrar </a></li>
+                   <br>
+                   <li><a href="/crear_usuario_cel">Registrarme</a></li>
+                   <br>
+               {% endif %}
+                 <br>
+                   <li><a href="/admin">Colaborar</a></li>
+                   <li><a href="/admin">Administra</a></li>
+            <!-- ###################################################################### 
+       
+                   <br>
+
+                   <li><a href="/datos_prueba">Datos prueba</a></li>
+                   <br>
+             ######################################################################  -->
+       
+            </ul>
+        </div>
+
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle"
+            data-toggle="dropdown">Analisis de datos <span class="caret"></span></button>
+                               
+             <ul class="dropdown-menu" role="menu">       
+                 
+                    <li><a href=""> Proyecciones en tiempo real</a></li>
+                    <li><a href=""> Perfil de la muestra</a></li>   
+                    <li><a href=""> Distribucion territorial</a></li>   
+                    <li><a href=""> Cruse y analisis de resultados</a></li>                    
+               
+
+             </ul>
+         </div>  
+
+           
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle"
+            data-toggle="dropdown">ayuda <span class="caret"></span></button>
+                               
+            <ul class="dropdown-menu" role="menu">
+                   <li><a href="">Manual de usuario</a></li> 
+                   <li><a href=""></a></li>
+            </ul>
+        </div>  
+</center>
+ </div>
+
+ 
+
+
+
+
+ <br>
+
+ <div class="col-md-12">        
+
+ <canvas id="canvas" width=650 height=500></canvas>      
+
+         {% block content %}
+
+
+         {% endblock %}
+          <br>
+         <center> <li><a href="/">Ir al inicio </a></li></center>
+  </div>
+  
+
+
+
+
+  </div>      
+ </div>
+
+
+
+
+
+
+</div>
+
+
+
+ <script src='{% static  "misjs/duval.js" %}'></script> 
+ <script src='{% static "bootstrap/js/jquery.min.js" %}' ></script>
+ <script src='{% static  "bootstrap/js/bootstrap.min.js" %}'></script>
+ 
+ </body>
+
+
+</html>
+
+
+
+
