@@ -73,8 +73,8 @@ class Ciudades(models.Model):
 		    		list_display = ('nombre')
 categoria=models.ForeignKey('Categoria',blank=True,null=True)
 
-class Cuestionario_temporal(models.Model):	     
-	    Sexo=models.CharField(max_length=2,blank=True)
+class Cuestionario_temporal(models.Model):
+		Sexo=models.CharField(max_length=2,blank=True)
 		Rango_de_edad=models.CharField(max_length=30,blank=True)
 		Grado_academico=models.CharField(max_length=30,blank=True)
 		Estado_socioeconomico=models.CharField(max_length=30,blank=True)
@@ -101,7 +101,7 @@ class Cuestionario_definitivo(models.Model):
 			return  self.Cual_es_su_preferencia
 		class Admin:
 			list_display = ('Departamento','Sexo','Cual_es_su_preferencia','fecha_ingreso')	     
-	    
+
 
 
 

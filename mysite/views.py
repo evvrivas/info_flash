@@ -93,12 +93,12 @@ def datos_departamento(request):
     p2.save()
 
     p2=Ciudades(departamento=p1,nombre="San Pedro Puxtla")
+    p2.save()    
+
+    p2=Ciudades(departamento=p1,nombre="Turín")
     p2.save()
 
     p2=Ciudades(departamento=p1,nombre="Tacuba")
-    p2.save()
-
-    p2=Ciudades(departamento=p1,nombre="Turín")
     p2.save()
       
     return render(request,'principal.html',locals())
