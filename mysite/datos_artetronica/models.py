@@ -83,15 +83,12 @@ class Cuestionario_temporal(models.Model):
 		Cual_es_su_preferencia=models.CharField(max_length=60,blank=True)
 		Colaborador=models.CharField(max_length=60,blank=True)
 		fecha_ingreso = models.DateField(default=datetime.now,editable = False)
-
-	     def __str__(self):
-		    		return  self.Cual_es_su_preferencia
-	     class Admin:
-		    		list_display = ('Departamento','Sexo','Cual_es_su_preferencia','fecha_ingreso')
-
-
-class Cuestionario_definitivo(models.Model):	     
-	    Sexo=models.CharField(max_length=2,blank=True)
+		def __str__(self):
+			return  self.Cual_es_su_preferencia
+		class Admin:
+			list_display = ('Departamento','Sexo','Cual_es_su_preferencia','fecha_ingreso')
+class Cuestionario_definitivo(models.Model):
+		Sexo=models.CharField(max_length=2,blank=True)
 		Rango_de_edad=models.CharField(max_length=30,blank=True)
 		Grado_academico=models.CharField(max_length=30,blank=True)
 		Estado_socioeconomico=models.CharField(max_length=30,blank=True)
@@ -100,11 +97,11 @@ class Cuestionario_definitivo(models.Model):
 		Cual_es_su_preferencia=models.CharField(max_length=60,blank=True)
 		Colaborador=models.CharField(max_length=60,blank=True)
 		fecha_ingreso = models.DateField(default=datetime.now,editable = False)
-
-	     def __str__(self):
-		    		return  self.Cual_es_su_preferencia
-	     class Admin:
-		    		list_display = ('Departamento','Sexo','Cual_es_su_preferencia','fecha_ingreso')
+		def __str__(self):
+			return  self.Cual_es_su_preferencia
+		class Admin:
+			list_display = ('Departamento','Sexo','Cual_es_su_preferencia','fecha_ingreso')	     
+	    
 
 
 
