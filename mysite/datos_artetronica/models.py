@@ -44,7 +44,7 @@ class Colaboradores(models.Model):
 	     nombre_de_usuario=models.IntegerField()
 	     pasword=models.CharField(max_length=4)
 	     email = models.EmailField(blank=True)	     
-	     telefono_whatsapp=CharField(max_length=30)	    
+	     telefono_whatsapp=models.CharField(max_length=30)	    
 	     estado_colaborador=models.CharField(max_length=30,choices=ESTADO,default="'DE_BAJA")
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 
