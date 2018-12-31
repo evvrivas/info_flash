@@ -44,15 +44,14 @@ class Colaboradores(models.Model):
 		imagen1 = ImageField(upload_to='tmp',blank=True)
 		nombre_de_usuario=models.IntegerField()
 		pasword=models.CharField(max_length=4)
-	    email = models.EmailField(blank=True)	     
-	    telefono_whatsapp=models.CharField(max_length=30)	    
-	    estado_colaborador=models.CharField(max_length=30,choices=ESTADO,default="'DE_BAJA")
-	    fecha_ingreso = models.DateField(default=datetime.now,editable = False)
-
-	    def __str__(self):
+		email = models.EmailField(blank=True)
+		telefono_whatsapp=models.CharField(max_length=30)
+		estado_colaborador=models.CharField(max_length=30,choices=ESTADO,default="'DE_BAJA")
+		fecha_ingreso = models.DateField(default=datetime.now,editable = False)
+		def __str__(self):
 		   		return  self.codigo
-	    class Admin:
-		    		list_display = (' nombre_de_usuario','telefono_whatsapp','estado_colaborador')
+		class Admin:
+	    	list_display = (' nombre_de_usuario','telefono_whatsapp','estado_colaborador')
 
 
 
