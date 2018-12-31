@@ -59,6 +59,11 @@ import matplotlib.pyplot as plt
 import os
 from django.conf import settings
 
+from io import BytesIO
+import base64
+import matplotlib
+matplotlib.use("Agg")
+
 
 def datos_departamento(request):
 
@@ -198,10 +203,11 @@ def informacion(request):
 
 
 def principal(request):    
+    grafico()
     return render(request,'principal.html',locals())
 
 
-def grafico(reques):  
+def grafico():  
        
         
         VALOR_DEL_GAS= [("A",10),("b",10),("g",10),("f",10),("s",10)]
@@ -236,16 +242,18 @@ def grafico(reques):
         subplots_adjust(left=0.21)
 
         plt.savefig(os.path.join(settings.MEDIA_URL, 'imagen.png'))
-      
 
-        buffer = io.BytesIO()
-        canvas = pylab.get_current_fig_manager().canvas
-        canvas.draw()        
-        graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
-        graphIMG.save(buffer, "PNG")
+
+
+        buf = BytesIO()
+        plt.savefig(buf, format='png')
+        image_base64 = base64.b64encode(buf.getvalue()).decode('utf-8').replace('\n', '')
+        buf.close()
+      
+        
         pylab.close()  
         
-        return HttpResponse (buffer.getvalue(), content_type="Image/png")
+        
 
  # Store image in a string buffer
 

@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^accounts/logout/$', logout),
     url(r'^informacion/$', informacion),
     url(r'^datos_departamento/$', datos_departamento),
-    url(r'^grafico/$', grafico),
+    
 
     
     url(r'^$', principal),
