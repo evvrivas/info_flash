@@ -241,14 +241,7 @@ def grafico():
 
         subplots_adjust(left=0.21)
 
-       
-
-
-
-        buf = BytesIO()
-        plt.savefig(buf, format='png')
-        image_base64 = base64.b64encode(buf.getvalue()).decode('utf-8').replace('\n', '')
-        buf.close()
+        plt.savefig(os.path.join(settings.MEDIA_URL, 'imagen.png'))       
       
         
         pylab.close()  
