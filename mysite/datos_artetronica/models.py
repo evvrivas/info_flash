@@ -42,7 +42,7 @@ class Usuarios(models.Model):
 
 class Colaboradores(models.Model):
 		imagen1 = ImageField(upload_to='tmp',blank=True)
-		nombre_de_usuario=models.IntegerField()
+		nombre_de_usuario=models.CharField(max_length=20)
 		pasword=models.CharField(max_length=4)
 		email = models.EmailField(blank=True)
 		telefono_whatsapp=models.CharField(max_length=30)
