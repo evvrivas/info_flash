@@ -193,14 +193,17 @@ def logout(request):
 def informacion(request):
   return render(request,'informacion.html',locals())
 
+
+
 def principal(request):    
     return render(request,'principal.html',locals())
 
 
-def grafico_barras(request,central_x,transformador_x):  
+def grafico(reques):  
        
-        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)             
+        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)  
 
+        VALOR_DEL_GAS= [("A",10),("b",10),("g",10),("f",10),("s",10)]
         nombre_gases=[]
         valor_gases=[]
 
