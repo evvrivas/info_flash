@@ -37,7 +37,7 @@ class Usuarios(models.Model):
 	     def __str__(self):
 		    		return  self.codigo
 	     class Admin:
-		    		list_display = (' nombre_de_usuario',' plan_contratado','estado_del_plan')
+		    		list_display = ('nombre_de_usuario',' plan_contratado','estado_del_plan')
 
 
 class Colaboradores(models.Model):
@@ -51,7 +51,7 @@ class Colaboradores(models.Model):
 		def __str__(self):
 		   		return  nombre_de_usuario
 		class Admin:
-			list_display = (' nombre_de_usuario','telefono_whatsapp','estado_colaborador')
+			list_display = ('nombre_de_usuario','telefono_whatsapp','estado_colaborador')
 
 class Departamentos(models.Model):	     
 	     nombre=models.CharField(max_length=60,blank=True)	     
