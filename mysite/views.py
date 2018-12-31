@@ -57,6 +57,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 #################################
 import os
+from django.conf import settings
 
 
 def datos_departamento(request):
