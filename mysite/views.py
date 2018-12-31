@@ -195,7 +195,6 @@ def informacion(request):
 
 def principal(request):    
     return render(request,'principal.html',locals())
-def ana35s5s
 
 
 def grafico_barras(request,central_x,transformador_x):  
@@ -247,4 +246,3 @@ def grafico_barras(request,central_x,transformador_x):
  # Store image in a string buffer
 
 
- 
