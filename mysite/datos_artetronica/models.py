@@ -49,7 +49,7 @@ class Colaboradores(models.Model):
 		estado_colaborador=models.CharField(max_length=30,choices=ESTADO,default="'DE_BAJA")
 		fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 		def __str__(self):
-		   		return  self.codigo
+		   		return  nombre_de_usuario
 		class Admin:
 			list_display = (' nombre_de_usuario','telefono_whatsapp','estado_colaborador')
 
