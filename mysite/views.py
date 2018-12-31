@@ -241,7 +241,7 @@ def grafico():
 
         subplots_adjust(left=0.21)
 
-        plt.savefig(os.path.join(settings.MEDIA_URL, 'imagen.png'))
+       
 
 
 
