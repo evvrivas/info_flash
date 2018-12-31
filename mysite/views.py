@@ -235,7 +235,7 @@ def grafico(reques):
 
         subplots_adjust(left=0.21)
 
-        plt.savefig(os.path.join(settings.BASE_DIR, 'static/img/imagen.png'))
+        plt.savefig(os.path.join(settings.MEDIA_URL, 'imagen.png'))
       
 
         buffer = io.BytesIO()
