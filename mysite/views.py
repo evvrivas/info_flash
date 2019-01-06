@@ -362,16 +362,18 @@ def analisis_de_datos_principal(request):
     return render(request,'analisis_de_datos_principal.html',locals())
 
 
-def grafico_principal(request):          
-        
-        datosfml=Datos_a_graficar.values_list("fml", flat=True)
-        datosgan=Datos_a_graficar.values_list("gan", flat=True)
-        datosvamo=Datos_a_graficar.values_list("vamo", flat=True)
-        datosalianza=Datos_a_graficar.values_list("alianza", flat=True)
-        datosaren=Datos_a_graficar.values_list("aren", flat=True)
-        datospc=Datos_a_graficar.values_list("pc", flat=True)
-        datospd=Datos_a_graficar.values_list("pd", flat=True)
-        datosdsv=Datos_a_graficar.values_list("dsv", flat=True)                  
+def grafico_principal(request):   
+
+        datos=Datos_a_graficar.objects.all()
+
+        datosfml=datos.values_list("fml", flat=True)
+        datosgan=datos.values_list("gan", flat=True)
+        datosvamo=datos.values_list("vamo", flat=True)
+        datosalianza=datos.values_list("alianza", flat=True)
+        datosaren=datos.values_list("aren", flat=True)
+        datospc=datos.values_list("pc", flat=True)
+        datospd=datos.values_list("pd", flat=True)
+        datosdsv=datos.values_list("dsv", flat=True)                  
 
         X= np.arange(len(datosfml))
         
