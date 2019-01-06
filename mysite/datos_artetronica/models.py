@@ -112,7 +112,6 @@ class Cuestionario_temporal(models.Model):
 		Rango_de_edad=models.CharField(max_length=30,choices=RANGO_EDAD)
 		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO)
 		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO)
-		Departamento_muestra=models.ForeignKey('Departamentos')
 		Ciudad_muestra=models.ForeignKey('Ciudades')
 		Cual_es_su_preferencia=models.CharField(max_length=60,choices=PREFERENCIA)
 		Colaborador=models.CharField(max_length=60,blank=True)
@@ -120,14 +119,13 @@ class Cuestionario_temporal(models.Model):
 		def __str__(self):
 			return  self.Cual_es_su_preferencia
 		class Admin:
-			list_display = ('Departamento','Sexo','Cual_es_su_preferencia','fecha_ingreso')
+			list_display = ('Ciudad_muestra','Sexo','Cual_es_su_preferencia','fecha_ingreso')
 
 class Cuestionario_final(models.Model):
 		Sexo=models.CharField(max_length=2,choices=SEXO)
 		Rango_de_edad=models.CharField(max_length=30,choices=RANGO_EDAD)
 		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO)
 		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO)
-		Departamento_muestra=models.ForeignKey('Departamentos')
 		Ciudad_muestra=models.ForeignKey('Ciudades')
 		Cual_es_su_preferencia=models.CharField(max_length=60,choices=PREFERENCIA)
 		Colaborador=models.CharField(max_length=60,blank=True)
@@ -135,7 +133,7 @@ class Cuestionario_final(models.Model):
 		def __str__(self):
 			return  self.Cual_es_su_preferencia
 		class Admin:
-			list_display = ('Departamento','Sexo','Cual_es_su_preferencia','fecha_ingreso')	     
+			list_display = ('Ciudad_muestra','Sexo','Cual_es_su_preferencia','fecha_ingreso')	     
 
 
 class Datos_a_graficar(models.Model):
@@ -170,6 +168,6 @@ class Datos_a_graficar(models.Model):
 	dsv=models.IntegerField(blank=True,default=0)
 
 	def __str__(self):
-			return  self.Cual_es_su_preferencia
+			return  self.id
 	class Admin:
-			list_display = ('Departamento','Sexo','Cual_es_su_preferencia','fecha_ingreso')	     
+			list_display = ('masculino','femenino')	     

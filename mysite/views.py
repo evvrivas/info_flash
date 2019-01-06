@@ -206,24 +206,23 @@ def cues(request):
     date=datetime.datetime.now()
 
 
-    
+    sity=Ciudades.objects.get(id=1)
+    sity2=Ciudades.objects.get(id=4)    
 
-    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="VAMO",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia="VAMO",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,,Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="FML",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia="FML",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="FML",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia="FML",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-
-
 
     return render(request,'principal.html',locals())
 
@@ -315,13 +314,13 @@ def ingresar_datos_de_consulta(request):
                             Rango_de_edadd= form.cleaned_data['Rango_de_edad']
                             Grado_academicoo=form.cleaned_data['Grado_academico']  
                             Estado_socioeconomicoo=form.cleaned_data['Estado_socioeconomico'] 
-                            Departamento_muestraa=form.cleaned_data['Departamento_muestra'] 
+                            #Departamento_muestraa=form.cleaned_data['Departamento_muestra'] 
                             Ciudad_muestraa=form.cleaned_data['Ciudad_muestra'] 
                             Cual_es_su_preferenciaa=form.cleaned_data['Cual_es_su_preferencia']
                             Colaboradorr=form.cleaned_data['Colaborador']
                             fecha_ingresoo=form.cleaned_data['fecha_ingreso'] 
 
-                            p1=Cuestionario_final(Sexo=Sexoo, Rango_de_edad=Rango_de_edadd, Grado_academico=Grado_academicoo , Estado_socioeconomico=Estado_socioeconomicoo , Departamento_muestra=Departamento_muestraa, Ciudad_muestra=Ciudad_muestraa ,Cual_es_su_preferencia=Cual_es_su_preferenciaa ,Colaborador=Colaboradorr ,fecha_ingreso=fecha_ingresoo )
+                            p1=Cuestionario_final(Sexo=Sexoo, Rango_de_edad=Rango_de_edadd, Grado_academico=Grado_academicoo , Estado_socioeconomico=Estado_socioeconomicoo , Ciudad_muestra=Ciudad_muestraa ,Cual_es_su_preferencia=Cual_es_su_preferenciaa ,Colaborador=Colaboradorr ,fecha_ingreso=fecha_ingresoo )
                             p1.save()                            
 
                             form.save() # Guardar los datos en la base de datos  print 
