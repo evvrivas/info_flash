@@ -447,9 +447,9 @@ def calculo_de_datos():
         datos_a_sumar=[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y]
         
         finales=[]
-        
+
         try:
-            datos=Datos_a_graficar.objects.all().[-1]            
+            datos=Datos_a_graficar.objects.all().last()        
             for i in range(len(datos)):
                 suma=datos_a_sumar[i]+datos[i]
                 finales[i]=suma
