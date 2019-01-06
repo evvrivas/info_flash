@@ -203,11 +203,12 @@ def us(request):
     return render(request,'principal.html',locals())
 
 def cues(request):
-    date=datetime.datetime.now()
+    
 
 
     sity=Ciudades.objects.get(id=1)
-    sity2=Ciudades.objects.get(id=4)    
+    sity2=Ciudades.objects.get(id=4)
+    date=datetime.datetime.now()    
 
     p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia="VAMO",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
