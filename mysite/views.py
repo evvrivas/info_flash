@@ -387,6 +387,7 @@ def grafico_principal(request):
                    
                
         #barh(pos,datos,align = 'center')
+        f=plt.figure()
         plt.plot(X,Y1, 'r')
         plt.plot(X,Y2, 'c')
         plt.plot(X,Y3, 'b')
