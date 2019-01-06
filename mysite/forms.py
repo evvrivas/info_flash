@@ -29,7 +29,7 @@ class Cuestionario_temporalForm(ModelForm):#productos
 		model=Cuestionario_temporal
 		exclude=["fecha_ingreso"]
 
-class Cuestionario_definitivoForm(ModelForm):#productos
+class Cuestionario_finalForm(ModelForm):#productos
 	class Meta:			
 		model=Cuestionario_definitivo
 		exclude=["fecha_ingreso"]
