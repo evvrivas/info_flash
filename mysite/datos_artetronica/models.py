@@ -37,7 +37,7 @@ class Usuarios(models.Model):
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 
 	     def __str__(self):
-		    		return  self.codigo
+		    		return  self.nombre_de_usuario
 	     class Admin:
 		    		list_display = ('nombre_de_usuario',' plan_contratado','estado_del_plan')
 

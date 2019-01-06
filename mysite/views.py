@@ -204,6 +204,10 @@ def us(request):
 
 def cues(request):
     date=datetime.datetime.now()
+
+
+    
+
     p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="VAMO",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )

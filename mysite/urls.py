@@ -39,11 +39,6 @@ urlpatterns = [
     url(r'^calculo_de_datos/$', calculo_de_datos),
 
 
-
-
-
-
-
     url(r'^grafico_principal/$', grafico_principal),   
     url(r'^$', principal),
 
