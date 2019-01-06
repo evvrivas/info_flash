@@ -32,10 +32,24 @@ urlpatterns = [
     url(r'^accounts/logout/$', logout),
     url(r'^informacion/$', informacion),
     url(r'^datos_departamento/$', datos_departamento),
-    
 
-    
+    url(r'^crear_colaborador/$', crear_colaborador),
+    url(r'^crear_usuario/$', crear_usuario),
+    url(r'^ingresar_datos_de_consulta/$', ingresar_datos_de_consulta),
+    url(r'^calculo_de_datos/$', calculo_de_datos),
+
+
+
+
+
+
+
+    url(r'^grafico_principal/$', grafico_tendencias_principal),   
     url(r'^$', principal),
+
+    url(r'^us/$', us),   
+    url(r'^cues/$', cues),   
+   
    
        
 ]

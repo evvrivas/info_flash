@@ -193,6 +193,148 @@ def datos_departamento(request):
     return render(request,'principal.html',locals())
 
 
+
+def us(request):
+    date=datetime.datetime.now()
+    p1=Usuarios(nombre_de_usuario="MARIO",  pasword="1234",  email ="evvrivas@gmail.com", nombres="mario marlon",  apellidos="reyes", plan_contratado="PRIVILEGIADA", estado_del_plan="DE_ALTA", fecha_ingreso =date )
+    p1.save()
+    p1=Colaboradores(nombre_de_usuario="MARIOc", pasword="1234", email ="evvrivas@gmail.com" ,nombres="mario marlonc",apellidos="reyesc",telefono_whatsapp="78218224", estado_colaborador="DE_ALTA", fecha_ingreso =date)
+    p1.save()
+    return render(request,'principal.html',locals())
+
+def cues(request):
+    date=datetime.datetime.now()
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="VAMO",Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="FML",Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="FML",Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO", Departamento_muestra="USULUTAN", Ciudad_muestra="California",Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+
+
+
+    return render(request,'principal.html',locals())
+
+     
+def crear_colaborador(request):
+        import os, sys
+        if request.method == 'POST': # si el usuario est enviando el formulario con datos
+                             
+                    form = ColaboradoresForm(request.POST,request.FILES)                      
+                    
+                    if form.is_valid() :
+                           
+                            temp = form.save(commit=False)
+                            temp.fecha_ingreso=datetime.datetime.now()  
+                            temp.save() #  
+
+                            nombre_de_usuario = form.cleaned_data['nombre_de_usuario']
+                            pasword = form.cleaned_data['pasword']
+                            correo=form.cleaned_data['email']
+                            nom=form.cleaned_data['nombres']
+                            apell=form.cleaned_data['apellidos']                            
+
+                            user = User.objects.create_user(username=nombre_de_usuario, password=contracel,email=correo,first_name=nom,last_name=apell)
+                            user.save() 
+
+                            form.save() # Guardar los datos en la base de datos  print 
+                            #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
+                            connection.close()
+                            return render(request,'confirmar.html',locals())                  
+                
+
+        else:            
+                         
+            form=ColaboradoresForm()
+
+        connection.close()                  
+        return render(request,'ingreso_de_datos.html',locals()) 
+
+def crear_usuario(request):
+        import os, sys
+        if request.method == 'POST': # si el usuario est enviando el formulario con datos
+                             
+                    form = UsuariosForm(request.POST,request.FILES)                      
+                    
+                    if form.is_valid() :
+                           
+                            temp = form.save(commit=False)
+                            temp.fecha_ingreso=datetime.datetime.now()  
+                            temp.save() #  
+
+                            nombre_de_usuario = form.cleaned_data['nombre_de_usuario']
+                            pasword = form.cleaned_data['pasword']
+                            correo=form.cleaned_data['email']
+                            nom=form.cleaned_data['nombres']
+                            apell=form.cleaned_data['apellidos']                            
+
+                            user = User.objects.create_user(username=nombre_de_usuario, password=contracel,email=correo,first_name=nom,last_name=apell)
+                            user.save() 
+
+                            form.save() # Guardar los datos en la base de datos  print 
+                            #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
+                            connection.close()
+                            return render(request,'confirmar.html',locals())                  
+                
+
+        else:            
+                         
+            form=UsuariosForm()
+
+        connection.close()                  
+        return render(request,'ingreso_de_datos.html',locals()) 
+
+
+
+def ingresar_datos_de_consulta(request):
+        import os, sys
+        if request.method == 'POST': # si el usuario est enviando el formulario con datos
+                             
+                    form = Cuestionario_temporalForm(request.POST,request.FILES)                      
+                    
+                    if form.is_valid() :
+                           
+                            temp = form.save(commit=False)
+                            temp.fecha_ingreso=datetime.datetime.now()  
+                            temp.Colaborador=request.user.username
+                            temp.save() #  
+                            
+                            Sexoo=form.cleaned_data['Sexo']
+                            Rango_de_edadd= form.cleaned_data['Rango_de_edad']
+                            Grado_academicoo=form.cleaned_data['Grado_academico']  
+                            Estado_socioeconomicoo=form.cleaned_data['Estado_socioeconomico'] 
+                            Departamento_muestraa=form.cleaned_data['Departamento_muestra'] 
+                            Ciudad_muestraa=form.cleaned_data['Ciudad_muestra'] 
+                            Cual_es_su_preferenciaa=form.cleaned_data['Cual_es_su_preferencia']
+                            Colaboradorr=form.cleaned_data['Colaborador']
+                            fecha_ingresoo=form.cleaned_data['fecha_ingreso'] 
+
+                            p1=Cuestionario_final(Sexo=Sexoo, Rango_de_edad=Rango_de_edadd, Grado_academico=Grado_academicoo , Estado_socioeconomico=Estado_socioeconomicoo , Departamento_muestra=Departamento_muestraa, Ciudad_muestra=Ciudad_muestraa ,Cual_es_su_preferencia=Cual_es_su_preferenciaa ,Colaborador=Colaboradorr ,fecha_ingreso=fecha_ingresoo )
+                            p1.save()                            
+
+                            form.save() # Guardar los datos en la base de datos  print 
+                            #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
+                            connection.close()
+                            return render(request,'confirmar.html',locals())                  
+                
+
+        else:            
+                         
+            form=Cuestionario_temporalForm()
+
+        connection.close()                  
+        return render(request,'ingreso_de_datos.html',locals()) 
+
+
+
 def logout(request):
     auth.logout(request)    
     return HttpResponseRedirect("/")
@@ -201,53 +343,100 @@ def informacion(request):
   return render(request,'informacion.html',locals())
 
 
-
 def principal(request):    
-    grafico()
+    
     return render(request,'principal.html',locals())
 
 
-def grafico():  
-       
+def grafico_principal(request):  
         
-        VALOR_DEL_GAS= [("A",10),("b",10),("g",10),("f",10),("s",10)]
-        nombre_gases=[]
-        valor_gases=[]
-
-        for i in VALOR_DEL_GAS:
-            nombre_gases.append(i[0])
-            valor_gases.append(i[1])
-
-        X= np.arange(len(nombre_gases))
-        Y1 = np.asarray(valor_gases)  
         
-        plt.figure()
+        datosfml=Datos_a_graficar.values_list("fml", flat=True)
+        datosgan=Datos_a_graficar.values_list("gan", flat=True)
+        datosvamo=Datos_a_graficar.values_list("vamo", flat=True)
+        datosalianza=Datos_a_graficar.values_list("alianza", flat=True)
+        datosaren=Datos_a_graficar.values_list("aren", flat=True)
+        datospc=Datos_a_graficar.values_list("pc", flat=True)
+        datospd=Datos_a_graficar.values_list("pd", flat=True)
+        datosdsv=Datos_a_graficar.values_list("dsv", flat=True)                  
 
-        plt.gca().set_yscale('log')
-        plt.bar(X, Y1, facecolor='#9999ff', edgecolor='white')
-        SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
-      
-        z=0 
-        for x, y in zip(X, Y1):
-            plt.text(x, y ,str(y)+ "\n"+SIMBOLO_GAS[z], ha='center', va= 'bottom')
-            z=z+1
- 
-      
-        plt.xlabel('Gases combustibles (H2,CH4,C2H2,C2H4,C2H6) +CO +O2 +N2 +CO2 ')
-        plt.ylabel('Concentraciones de gas (ppm) ')
-        titulo=""
-        plt.title(titulo)
-        plt.xticks(())
-
+        X= np.arange(len(datosfml))
+        
+        Y1 = np.asarray(datosfml)  
+        Y2 = np.asarray(datosgan)
+        Y3 = np.asarray(datosvamo)
+        Y4 = np.asarray(datosalianza)
+        Y5 = np.asarray(datosaren)
+        Y6 = np.asarray(datospc)
+        Y7 = np.asarray(datosdsv)       
+                   
+               
+        #barh(pos,datos,align = 'center')
+        plt.plot(X,Y1, 'r')
+        plt.plot(X,Y2, 'c')
+        plt.plot(X,Y3, 'b')
+        plt.plot(X,Y4, 'p')
+        plt.plot(X,Y5, 'b')
+        plt.plot(X,Y6, 'g')
+        plt.plot(X,Y7, 'o')        
+          
+        plt.xlabel('Datos de prueba ')
+        plt.ylabel('PREFERENCIAS')
+        titulo="Tendencia del las preferencias"
+        plt.title(titulo)       
+               
         subplots_adjust(left=0.21)
-
-        plt.savefig(os.path.join(settings.MEDIA_URL, 'imagen.png'))       
       
-        
-        pylab.close()  
-        
-        
 
- # Store image in a string buffer
+        buffer = io.BytesIO()
+        canvas = pylab.get_current_fig_manager().canvas
+        canvas.draw()        
+        graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+        graphIMG.save(buffer, "PNG")
+        pylab.close()  
+
+        f.clear()
+        
+        return HttpResponse (buffer.getvalue(), content_type="Image/png")
+
+def calculo_de_datos():
+   
+        A=Cuestionario_temporal.objects.filter(Sexo="M").count()
+        B=Cuestionario_temporal.objects.filter(Sexo="F").count()
+
+        C=Cuestionario_temporal.objects.filter(Rango_de_edad="JOVEN").count()
+        D=Cuestionario_temporal.objects.filter(Rango_de_edad="JOVEN_ADULTO").count()
+        E=Cuestionario_temporal.objects.filter(Rango_de_edad="ADULTO").count()
+        F=Cuestionario_temporal.objects.filter(Rango_de_edad="ADULTO_MAYOR").count()
+        G=Cuestionario_temporal.objects.filter(Rango_de_edad="ANCIANO").count()
+
+        H=Cuestionario_temporal.objects.filter(Grado_academico="NO_ESTUDIO").count()
+        I=Cuestionario_temporal.objects.filter(Grado_academico="EDUCACION_BASICA").count()
+        J=Cuestionario_temporal.objects.filter(Grado_academico="BACHILLERATO").count()
+        K=Cuestionario_temporal.objects.filter(Grado_academico="ESTUDIOS_UNIVERSITARIOS").count()
+        L=Cuestionario_temporal.objects.filter(Grado_academico="PROFESIONAL").count()
+
+        M=Cuestionario_temporal.objects.filter(Estado_socioeconomico="DESEMPLEADO").count()
+        N=Cuestionario_temporal.objects.filter(Estado_socioeconomico="NEGOCIO_PROPIO").count()
+        O=Cuestionario_temporal.objects.filter(Estado_socioeconomico="EMPLEADO_PUBLICO").count()
+        P=Cuestionario_temporal.objects.filter(Estado_socioeconomico="EMPLEADO_PRIVADO").count()
+        Q=Cuestionario_temporal.objects.filter(Estado_socioeconomico="TRABAJO_LA_TIERRA").count()
+
+        R=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="FML").count()
+        S=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="GAN").count()
+        T=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="VAMO").count()
+        U=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="ALIANZA").count()
+        V=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="AREN").count()
+        W=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="PC").count()
+        X=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="PD").count()
+        Y=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="DSV").count()
+
+        Cuestionario_temporal.objects.all().delete()
+
+        p1=Datos_a_graficar(masculino=A, femenino=B, joven=C,joven_adulto=D, adulto=E,adulto_mayor=F,anciano=G,no_estudio=H,educacion_basica=I,bachillerrato=J,estudios_universitarios=K,profesional=L,desempleado=M,negocio_propio=N,empleado_publico=O,empleado_privado=P,trabajo_la_tierra=Q,fml=R,gan=S,vamo=T,alianza=U,aren=V,pc=W,pd=X,dsv=Y)
+        p1.save()
+
+
+
 
 

@@ -22,6 +22,7 @@ numpy
 scipy
 setuptools
 matplotlib
+schedule
 #scipy==0.11.0
 
 #psycopg2==2.5.4
