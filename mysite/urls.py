@@ -44,7 +44,7 @@ urlpatterns = [
 
 
 
-    url(r'^grafico_principal/$', grafico_tendencias_principal),   
+    url(r'^grafico_principal/$', grafico_principal),   
     url(r'^$', principal),
 
     url(r'^us/$', us),   
