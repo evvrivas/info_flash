@@ -7,12 +7,12 @@ from django.forms import ModelForm, Textarea
 class UsuariosForm(ModelForm):
 	class Meta:
 		model= Usuarios		
-		exclude=["fecha_ingreso"]
+		exclude=["fecha_ingreso","estado_del_plan"]
 
 class ColaboradoresForm(ModelForm):#usuario
 	class Meta:			
 		model=Colaboradores
-		exclude=["fecha_ingreso"]
+		exclude=["fecha_ingreso","estado_colaborador"]
 				    
 class DepartamentosForm(ModelForm):#tiendas
 	class Meta:			

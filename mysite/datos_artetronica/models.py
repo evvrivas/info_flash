@@ -27,7 +27,7 @@ ESTADO=(   	('DE_BAJA', 'DE_BAJA'),
 		     )
 
 class Usuarios(models.Model):
-	     nombre_de_usuario=models.IntegerField()
+	     nombre_de_usuario=models.CharField(max_length=20)
 	     pasword=models.CharField(max_length=4)
 	     email = models.EmailField(blank=True)
 	     nombres=models.CharField(max_length=30)
