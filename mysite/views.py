@@ -213,7 +213,7 @@ def cues(request):
     p1.save()
     p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,,Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia="FML",Colaborador="manuel",fecha_ingreso =date )
     p1.save()
