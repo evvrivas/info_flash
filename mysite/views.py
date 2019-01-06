@@ -198,12 +198,17 @@ def us(request):
     date=datetime.datetime.now()
     p1=Usuarios(nombre_de_usuario="MARIO",  pasword="1234",  email ="evvrivas@gmail.com", nombres="mario marlon",  apellidos="reyes", plan_contratado="PRIVILEGIADA", estado_del_plan="DE_ALTA", fecha_ingreso =date )
     p1.save()
+    user = User.objects.create_user(username="MARIO", password="1234",email="evvrivas@gmail.com",first_name="mario marlon",last_name="reyes")
+    user.save() 
+
+
     p1=Colaboradores(nombre_de_usuario="MARIOc", pasword="1234", email ="evvrivas@gmail.com" ,nombres="mario marlonc",apellidos="reyesc",telefono_whatsapp="78218224", estado_colaborador="DE_ALTA", fecha_ingreso =date)
     p1.save()
+    user = User.objects.create_user(username="MARIOc", password="1234",email="evvrivas@gmail.com",first_name="mario marlonc",last_name="reyesc")
+    user.save() 
     return render(request,'principal.html',locals())
 
-def cues(request):
-    
+def cues(request):  
 
 
     sity=Ciudades.objects.get(id=1)
@@ -351,9 +356,13 @@ def principal(request):
     
     return render(request,'principal.html',locals())
 
+def analisis_de_datos_principal(request):   
+    calculo_de_datos()
+    
+    return render(request,'analisis_de_datos_principal.html',locals())
 
-def grafico_principal(request):  
-        
+
+def grafico_principal(request):          
         
         datosfml=Datos_a_graficar.values_list("fml", flat=True)
         datosgan=Datos_a_graficar.values_list("gan", flat=True)
@@ -435,9 +444,22 @@ def calculo_de_datos():
         X=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="PD").count()
         Y=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="DSV").count()
 
-        Cuestionario_temporal.objects.all().delete()
+        datos_a_sumar=[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y]
+        
+        finales=[]
+        
+        try:
+            datos=Datos_a_graficar.objects.all().[-1]            
+            for i in range(len(datos)):
+                suma=datos_a_sumar[i]+datos[i]
+                finales[i]=suma
+        except:
+            finales=datos_a_sumar
 
-        p1=Datos_a_graficar(masculino=A, femenino=B, joven=C,joven_adulto=D, adulto=E,adulto_mayor=F,anciano=G,no_estudio=H,educacion_basica=I,bachillerrato=J,estudios_universitarios=K,profesional=L,desempleado=M,negocio_propio=N,empleado_publico=O,empleado_privado=P,trabajo_la_tierra=Q,fml=R,gan=S,vamo=T,alianza=U,aren=V,pc=W,pd=X,dsv=Y)
+
+        Cuestionario_temporal.objects.all().delete()
+        
+        p1=Datos_a_graficar(masculino=finales[0], femenino=finales[1], joven=finales[2],joven_adulto=finales[3], adulto=finales[4],adulto_mayor=finales[5],anciano=finales[6],no_estudio=finales[7],educacion_basica=finales[8],bachillerrato=finales[9],estudios_universitarios=finales[10],profesional=finales[11],desempleado=finales[12],negocio_propio=finales[13],empleado_publico=finales[14],empleado_privado=finales[15],trabajo_la_tierra=finales[16],fml=finales[17],gan=finales[18],vamo=finales[19],alianza=finales[20],aren=finales[21],pc=finales[22],pd=finales[23],dsv=finales[24])
         p1.save()
 
 

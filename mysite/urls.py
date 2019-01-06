@@ -38,7 +38,7 @@ urlpatterns = [
     url(r'^ingresar_datos_de_consulta/$', ingresar_datos_de_consulta),
     url(r'^calculo_de_datos/$', calculo_de_datos),
 
-
+    url(r'^analisis_de_datos_principal/$', analisis_de_datos_principal),
     url(r'^grafico_principal/$', grafico_principal),   
     url(r'^$', principal),
 
