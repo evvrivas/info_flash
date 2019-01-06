@@ -31,7 +31,7 @@ class Cuestionario_temporalForm(ModelForm):#productos
 
 class Cuestionario_finalForm(ModelForm):#productos
 	class Meta:			
-		model=Cuestionario_definitivo
+		model=Cuestionario_final
 		exclude=["fecha_ingreso"]
     
 #############################
