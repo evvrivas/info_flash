@@ -31,9 +31,9 @@ admin.site.register(Cuestionario_temporal)
 class RulesAdmin(admin.ModelAdmin):
     form = Cuestionario_temporalForm
 
-admin.site.register(Cuestionario_definitivo)
+admin.site.register(Cuestionario_final)
 class RulesAdmin(admin.ModelAdmin):
-    form = Cuestionario_definitivoForm
+    form = Cuestionario_finalForm
  
  ##########################
    
