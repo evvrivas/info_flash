@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load staticfiles %} 
+{% load thumbnail %}
+
+
+{% block content %}
+      
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+            <h2 class="panel-title"><center>TABULACIONN DE DATOS </center></h2>       
+     </div>
+
+
+    <div class="panel-body">
+       <div class="row">             
+          	 <div class="col-md-12">
+               	 <div class="thumbnail">                                    
+		             <div class="caption">
+        		        
+                    <center>
+                         <table BORDER="1" CELLSPACING="1">
+                            
+
+                            <tr  align="center">                                   
+                                                                        
+                                    <td WIDTH="100">fml</td> 
+                                    <td WIDTH="60">gan</td>                               
+                                    <td WIDTH="60">vamo</td>                             
+                                    <td WIDTH="60">alianza</td>
+                                    <td WIDTH="60">aren</td>                              
+                                    <td WIDTH="60">pc</td>                           
+                                    <td WIDTH="60">pd </td>
+                                    <td WIDTH="60">dsv</td>                                                       
+                                                                                                    
+                               </tr >
+
+                            {%  for i in datos %}  
+
+                                    
+                                <tr  align="center">
+
+                                    <td WIDTH="60">{{i.fml}}</td>
+                                    <td WIDTH="60">{{i.gan}}</td>                      
+                                    <td WIDTH="60">{{i.vamo}}</td>                     
+                                    <td WIDTH="60">{{i.alianza}}</td>
+                                    <td WIDTH="60">{{i.aren}}</td>                     
+                                    <td WIDTH="60">{{i.pc}}</td>                       
+                                    <td WIDTH="60">{{i.pd}}</td>
+                                    <td WIDTH="60">{{i.dsv}}</td>                   
+                                     
+                                </tr >
+
+
+                            {%  endfor %} 
+                     </table>
+                        </center>
+
+                        <br>  
+                        <br> 
+
+                        <center>
+                         <table BORDER="1" CELLSPACING="1">
+                            
+                               <tr  align="center">                                   
+                                                                        
+                                    <td WIDTH="100">Sexo</td> 
+                                    <td WIDTH="60">Rango_de_edad</td>                
+                                    <td WIDTH="60">Academico</td>                      
+                                    <td WIDTH="60">Socioeconomico</td>
+                                    <td WIDTH="60">Ciudad</td>                         
+                                    <td WIDTH="60">preferencia</td>                          
+                                                                                                    
+                               </tr >
+
+                            {%  for i in datos_crudos  %}  
+
+                                    
+                                <tr  align="center">
+
+                                    <td WIDTH="60">{{i.Sexo}}</td>
+                                    <td WIDTH="60">{{i.Rango_de_edad}}</td>           
+                                    <td WIDTH="60">{{i.Grado_academico}}</td>      
+                                    <td WIDTH="60">{{i.Estado_socioeconomico}}</td>
+                                    <td WIDTH="60">{{i.Ciudad_muestra}}</td>      
+                                    <td WIDTH="60">{{i.Cual_es_su_preferencia}}</td>                                                    
+                                     
+                                </tr >
+
+
+                            {%  endfor %} 
+                     </table>
+                        </center>
+
+                                           
+
+                                                                                      
+		             </div>  
+
+                </div>
+             </div>
+
+
+               
+        </div>
+      </div>
+
+
+</div>
+
+{% endblock %}

@@ -42,14 +42,12 @@ urlpatterns = [
     
 
     
-    url(r'^grafico_principal/$', grafico_principal),   
+    url(r'^grafico_principal/$', grafico_principal),
+    url(r'^tabular_datos/$', tabular_datos),    
     url(r'^$', principal),
 
     url(r'^us/$', us),   
     url(r'^cues/$', cues),   
-   
-      
-    
 
  
        

@@ -208,27 +208,69 @@ def us(request):
     user.save() 
     return render(request,'principal.html',locals())
 
+
+
+
+import random
 def cues(request):  
 
 
     sity=Ciudades.objects.get(id=1)
     sity2=Ciudades.objects.get(id=4)
-    date=datetime.datetime.now()    
+    date=datetime.datetime.now()  
+    
+    
+    selec=['FML','GAN','VAMO','ALIANZA','AREN','PC','PD','DSV']
+    
+    i=random.randrange(0, 7)
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+    p1=Cuestionario_final(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
 
-    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia="VAMO",Colaborador="manuel",fecha_ingreso =date )
+
+    i=random.randrange(0, 7)
+    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_final(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
+    
+    
+    i=random.randrange(0, 7)
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia="FML",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_final(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia="FML",Colaborador="manuel",fecha_ingreso =date )
+
+   
+
+    i=random.randrange(0, 7)
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia="GAN",Colaborador="manuel",fecha_ingreso =date )
+    p1=Cuestionario_final(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
-    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia="AREN",Colaborador="manuel",fecha_ingreso =date )
+       
+
+    i=random.randrange(0, 7)
+    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
+    p1=Cuestionario_final(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+
+
+    i=random.randrange(0, 7)
+    p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+    p1=Cuestionario_final(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+   
+
+    i=random.randrange(0, 7)
+    p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+    p1=Cuestionario_final(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
+    p1.save()
+   
 
     return render(request,'principal.html',locals())
 
@@ -362,7 +404,13 @@ def poner_graficos_en_pantalla(request):
 def hacer_calculo_datos(request):   
     calculo_de_datos()
     
-    return render(request,'analisis_de_datos_principal.html',locals())
+    return render(request,'principal.html',locals())
+
+
+def tabular_datos(request):   
+    datos=Datos_a_graficar.objects.all()   
+    datos_crudos=Cuestionario_final.objects.all()
+    return render(request,'tablas.html',locals())
 
 
 def grafico_principal(request):   
