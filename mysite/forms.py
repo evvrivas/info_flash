@@ -33,6 +33,12 @@ class Cuestionario_finalForm(ModelForm):#productos
 	class Meta:			
 		model=Cuestionario_final
 		exclude=["fecha_ingreso"]
+
+class Datos_a_graficarForm(ModelForm):#productos
+	class Meta:			
+		model=Datos_a_graficar
+		exclude=[""]
+		
     
 #############################
 

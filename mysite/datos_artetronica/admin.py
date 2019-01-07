@@ -35,5 +35,8 @@ admin.site.register(Cuestionario_final)
 class RulesAdmin(admin.ModelAdmin):
     form = Cuestionario_finalForm
  
+admin.site.register(Datos_a_graficar)
+class RulesAdmin(admin.ModelAdmin):
+    form = Datos_a_graficarForm
  ##########################
    

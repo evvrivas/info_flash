@@ -36,16 +36,22 @@ urlpatterns = [
     url(r'^crear_colaborador/$', crear_colaborador),
     url(r'^crear_usuario/$', crear_usuario),
     url(r'^ingresar_datos_de_consulta/$', ingresar_datos_de_consulta),
-    url(r'^calculo_de_datos/$', calculo_de_datos),
 
-    url(r'^analisis_de_datos_principal/$', analisis_de_datos_principal),
+    url(r'^poner_graficos_en _pantalla/$', poner_graficos_en _pantalla),
+    url(r'^hacer_calculo_datos/$', hacer_calculo_datos),
+    
+
+    
     url(r'^grafico_principal/$', grafico_principal),   
     url(r'^$', principal),
 
     url(r'^us/$', us),   
     url(r'^cues/$', cues),   
    
-   
+      
+    
+
+ 
        
 ]
 
