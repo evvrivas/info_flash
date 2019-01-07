@@ -503,7 +503,7 @@ def calculo_de_datos():
         finales=[]
 
         try:
-            datos=Datos_a_graficar.objects.all().last()        
+            datos=Datos_a_graficar.objects.all().order_by('-id')[0]  
             for i in range(len(datos)):
                 suma=datos_a_sumar[i]+datos[i]
                 finales[i]=suma
