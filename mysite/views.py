@@ -356,7 +356,7 @@ def principal(request):
     
     return render(request,'principal.html',locals())
 
-def poner_graficos_en _pantalla(request):    
+def poner_graficos_en_pantalla(request):    
     return render(request,'analisis_de_datos_principal.html',locals())
 
 def hacer_calculo_datos(request):   

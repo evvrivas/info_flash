@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^crear_usuario/$', crear_usuario),
     url(r'^ingresar_datos_de_consulta/$', ingresar_datos_de_consulta),
 
-    url(r'^poner_graficos_en _pantalla/$', poner_graficos_en _pantalla),
+    url(r'^poner_graficos_en_pantalla/$', poner_graficos_en_pantalla),
     url(r'^hacer_calculo_datos/$', hacer_calculo_datos),
     
 
