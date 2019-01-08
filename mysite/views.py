@@ -526,7 +526,7 @@ def calculo_de_datos():
 
 
         try:
-            datos=Datos_a_graficar.objects..all().last() 
+            datos=Datos_a_graficar.objects.all().last() 
                       
 
             for i in range(len(datos)):
