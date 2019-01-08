@@ -412,6 +412,59 @@ def tabular_datos(request):
     datos_crudos=Cuestionario_final.objects.all()
     return render(request,'tablas.html',locals())
 
+def grafico_de_barras_principal(request): 
+
+        datos=Datos_a_graficar.objects.order_by('-id')[0]
+        aa=datos.aren+datos.pc+datos.pd+datos.dsv
+        datos2=[datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv] 
+       
+
+        nombre=[]
+        valor=[]
+
+
+        for i in datos2:
+            nombre.append(i[0])
+            valor.append(i[1])
+
+        X= np.arange(len(datos2))
+        
+        Y1 = np.asarray(datos2)  
+                       
+               
+        f=plt.figure()
+       
+            
+        bar_width = 0.45
+        plt.bar(X, Y1, bar_width, color='b')
+        
+        SIMBOLO_G=["fml","gan","vamo","alian","aren","pc","pd","dsv"]
+      
+        z=0 
+        for x, y in zip(X, Y1):
+            plt.text(x, y+1 ,str(y)+ "\n"+SIMBOLO_G[z], ha='center', va= 'bottom')
+            z=z+1
+ 
+      
+        plt.xlabel(' participantes del estudio ')
+        plt.ylabel('preferencias ')
+        titulo=""
+        plt.title(titulo)
+        plt.xticks(())
+
+        subplots_adjust(left=0.21)
+      
+
+        buffer = io.BytesIO()
+        canvas = pylab.get_current_fig_manager().canvas
+        canvas.draw()        
+        graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+        graphIMG.save(buffer, "PNG")
+        pylab.close()  
+
+        f.clear()
+        
+        return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 def grafico_principal(request):   
 
@@ -440,14 +493,14 @@ def grafico_principal(request):
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(X,Y1, 'red', 'fml', label='fml')
-        plt.plot(X,Y2, 'aqua','gan', label='gan')
-        plt.plot(X,Y3, 'darkblue','vam', label='vam')
-        plt.plot(X,Y4, 'gold','alian', label='alian')
-        plt.plot(X,Y5, 'lightsteelblue','aren', label='aren')
-        plt.plot(X,Y6, 'blue','pc', label='pc')
-        plt.plot(X,Y7, 'green','pd', label='pd')
-        plt.plot(X,Y8, 'springgreen','dsv', label='dsv')   
+        plt.plot(X,Y1, 'red')
+        plt.plot(X,Y2, 'aqua')
+        plt.plot(X,Y3, 'darkblue')
+        plt.plot(X,Y4, 'gold')
+        plt.plot(X,Y5, 'lightsteelblue')
+        plt.plot(X,Y6, 'blue')
+        plt.plot(X,Y7, 'green')
+        plt.plot(X,Y8, 'springgreen')   
 
         plt.grid()     
           

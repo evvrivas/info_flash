@@ -40,8 +40,8 @@ urlpatterns = [
     url(r'^poner_graficos_en_pantalla/$', poner_graficos_en_pantalla),
     url(r'^hacer_calculo_datos/$', hacer_calculo_datos),
     
-
     
+    url(r'^grafico_de_barras_principal/$', grafico_de_barras_principal),
     url(r'^grafico_principal/$', grafico_principal),
     url(r'^tabular_datos/$', tabular_datos),    
     url(r'^$', principal),
