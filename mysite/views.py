@@ -415,7 +415,7 @@ def tabular_datos(request):
 
 def grafico_principal(request):   
 
-        datos=Datos_a_graficar.objects.all()
+        datos=Datos_a_graficar.objects.all().last()
 
         datosfml=datos.values_list("fml", flat=True)
         datosgan=datos.values_list("gan", flat=True)
@@ -439,13 +439,34 @@ def grafico_principal(request):
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(X,Y1, 'r')
-        plt.plot(X,Y2, 'c')
-        plt.plot(X,Y3, 'b')
-        plt.plot(X,Y4, 'p')
-        plt.plot(X,Y5, 'b')
-        plt.plot(X,Y6, 'g')
-        plt.plot(X,Y7, 'o')        
+        f, axs = plt.subplots(2, 1, figsize=(9, 9), sharey=True)
+        axs[0].plot(X,Y1, 'r')
+        axs[0].plot(X,Y2, 'c')
+        axs[0].plot(X,Y3, 'b')
+        axs[0].plot(X,Y4, 'p')
+        axs[0].plot(X,Y5, 'b')
+        axs[0].plot(X,Y6, 'g')
+        axs[0].plot(X,Y7, 'o')  
+
+        axs[0].xlabel('Datos de prueba ')
+        axs[0].ylabel('PREFERENCIAS')
+        titulo="Tendencia del las preferencias"
+        axs[0].plt.title(titulo)      
+
+
+         x=["fml","gan","vamo","alianza","aren","pc","pd","dsv"]
+      
+
+        axs[1].bar(x, datos)
+        axs[1].xlabel('Estudiados')
+        axs[1].ylabel('PREFERENCIAS')
+        titulo="Grafico de barras"
+        axs[1].plt.title(titulo)      
+
+
+
+      
+        plt.grid()     
           
         plt.xlabel('Datos de prueba ')
         plt.ylabel('PREFERENCIAS')
@@ -502,8 +523,11 @@ def calculo_de_datos():
         
         finales=[]
 
+
+
         try:
-            datos=Datos_a_graficar.objects.last()            
+            datos=Datos_a_graficar.objects..all().last() 
+                      
 
             for i in range(len(datos)):
                 suma=datos_a_sumar[i]+datos[i]
