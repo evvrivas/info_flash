@@ -502,7 +502,7 @@ def calculo_de_datos():
         X=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="PD").count()
         Y=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="DSV").count()
 
-        U=V+W+X+Z
+        U=V+W+X+Y
         
         datos_a_sumar=[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y]
         
