@@ -447,7 +447,7 @@ def grafico_principal(request):
         plt.plot(X,Y6, 'g')
         plt.plot(X,Y7, 'o')   
 
-        ax.grid()     
+        plt.grid()     
           
         plt.xlabel('Datos de prueba ')
         plt.ylabel('PREFERENCIAS')
@@ -507,7 +507,7 @@ def calculo_de_datos():
 
 
         try:
-            datos=Datos_a_graficar.objects.all().last() 
+            datos=Datos_a_graficar.objects.all()order('-id')[0]
             finales=[]            
             for i in range(len(datos_a_sumar)):
                     suma=datos_a_sumar[i]+datos[i]
