@@ -506,13 +506,14 @@ def calculo_de_datos():
 
 
 
-        
-        datos=Datos_a_graficar.objects.all().last() 
-        finales=[]            
-        for i in range(len(datos_a_sumar)):
-                suma=datos_a_sumar[i]+datos[i]
-                finales.append(suma)
-      
+        try:
+            datos=Datos_a_graficar.objects.all().last() 
+            finales=[]            
+            for i in range(len(datos_a_sumar)):
+                    suma=datos_a_sumar[i]+datos[i]
+                    finales.append(suma)
+        except:
+            finales=datos_a_sumar
 
 
         Cuestionario_temporal.objects.all().delete()
