@@ -418,14 +418,13 @@ def grafico_de_barras_principal(request):
         aa=datos.aren+datos.pc+datos.pd+datos.dsv
         datos2=[datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv] 
        
-
         nombre=[]
         valor=[]
 
 
         for i in datos2:
-            nombre.append(i[0])
-            valor.append(i[1])
+            nombre.append(i)
+            
 
         X= np.arange(len(datos2))
         
