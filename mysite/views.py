@@ -220,7 +220,7 @@ def cues(request):
     date=datetime.datetime.now()  
     
     
-    selec=['FML','GAN','VAMO','ALIANZA','AREN','PC','PD','DSV']
+    selec=['FML','GAN','VAMO','AREN','PC','PD','DSV']
     
     i=random.randrange(0, 7)
     p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
@@ -434,18 +434,20 @@ def grafico_principal(request):
         Y4 = np.asarray(datosalianza)
         Y5 = np.asarray(datosaren)
         Y6 = np.asarray(datospc)
-        Y7 = np.asarray(datosdsv)       
+        Y7 = np.asarray(datospd)        
+        Y8 = np.asarray(datosdsv)       
                    
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(X,Y1, 'r')
-        plt.plot(X,Y2, 'c')
-        plt.plot(X,Y3, 'b')
-        plt.plot(X,Y4, 'p')
-        plt.plot(X,Y5, 'b')
-        plt.plot(X,Y6, 'g')
-        plt.plot(X,Y7, 'o')   
+        plt.plot(X,Y1, 'red', 'fml', label='fml')
+        plt.plot(X,Y2, 'aqua','gan', label='gan')
+        plt.plot(X,Y3, 'darkblue','vam', label='vam')
+        plt.plot(X,Y4, 'gold','alian', label='alian')
+        plt.plot(X,Y5, 'lightsteelblue','aren', label='aren')
+        plt.plot(X,Y6, 'blue','pc', label='pc')
+        plt.plot(X,Y7, 'green','pd', label='pd')
+        plt.plot(X,Y8, 'springgreen','dsv', label='dsv')   
 
         plt.grid()     
           
@@ -500,12 +502,19 @@ def calculo_de_datos():
         X=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="PD").count()
         Y=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="DSV").count()
 
+        U=V+W+X+Z
+        
         datos_a_sumar=[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y]
         
         finales=[]
 
+        
+
         datos=Datos_a_graficar.objects.order_by('-id')[0]
-        datos2=[datos.masculino, datos.femenino, datos.joven, datos.joven_adulto,datos.adulto,datos.adulto_mayor,datos.anciano,datos.no_estudio,datos.educacion_basica,datos.bachillerrato,datos.estudios_universitarios,datos.profesional,datos.desempleado,datos.negocio_propio,datos.empleado_publico,datos.empleado_privado,datos.trabajo_la_tierra,datos.fml,datos.gan,datos.vamo,datos.alianza,datos.aren,datos.pc,datos.pd,datos.dsv]      
+
+        aa=datos.aren+datos.pc+datos.pd+datos.dsv
+
+        datos2=[datos.masculino, datos.femenino, datos.joven, datos.joven_adulto,datos.adulto,datos.adulto_mayor,datos.anciano,datos.no_estudio,datos.educacion_basica,datos.bachillerrato,datos.estudios_universitarios,datos.profesional,datos.desempleado,datos.negocio_propio,datos.empleado_publico,datos.empleado_privado,datos.trabajo_la_tierra,datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv]      
         
         for i in range(len(datos_a_sumar)):
             suma=datos_a_sumar[i]+datos2[i]
