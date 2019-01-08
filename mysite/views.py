@@ -454,7 +454,7 @@ def grafico_principal(request):
         axs[0].plt.title(titulo)      
 
 
-         x=["fml","gan","vamo","alianza","aren","pc","pd","dsv"]
+        x=["fml","gan","vamo","alianza","aren","pc","pd","dsv"]
       
 
         axs[1].bar(x, datos)
