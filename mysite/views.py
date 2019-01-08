@@ -415,7 +415,8 @@ def tabular_datos(request):
 
 def grafico_principal(request):   
 
-        datos=Datos_a_graficar.objects.all().last()
+        datos_barras=Datos_a_graficar.objects.all().last()
+        datos=Datos_a_graficar.objects.all()
 
         datosfml=datos.values_list("fml", flat=True)
         datosgan=datos.values_list("gan", flat=True)
@@ -456,8 +457,8 @@ def grafico_principal(request):
 
         x=["fml","gan","vamo","alianza","aren","pc","pd","dsv"]
       
-
-        axs[1].bar(x, datos)
+        Y1 = np.asarray(datos_barras)
+        axs[1].bar(x, Y1)
         axs[1].xlabel('Estudiados')
         axs[1].ylabel('PREFERENCIAS')
         titulo="Grafico de barras"
