@@ -508,15 +508,15 @@ def calculo_de_datos():
 
         try:
 
-            datos=Datos_a_graficar.objects.all().order('-id')[0]
+            datos=Datos_a_graficar.objects.order_by('-id')[0]            
             finales=[]            
             for i in range(len(datos_a_sumar)):
                     suma=datos_a_sumar[i]+datos[i]
                     finales.append(suma)
-            var="EN EL INTENTO"
+            
         except:
             finales=datos_a_sumar
-            var="hobo error"
+            
 
 
         Cuestionario_temporal.objects.all().delete()
