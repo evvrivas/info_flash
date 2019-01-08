@@ -505,12 +505,13 @@ def calculo_de_datos():
         finales=[]
 
         datos=Datos_a_graficar.objects.order_by('-id')[0]
+        datos2=[datos.masculino, datos.femenino, datos.joven, datos.joven_adulto,datos.adulto,datos.adulto_mayor,datos.anciano,datos.no_estudio,datos.educacion_basica,datos.bachillerrato,datos.estudios_universitarios,datos.profesional,datos.desempleado,datos.negocio_propio,datos.empleado_publico,datos.empleado_privado,datos.trabajo_la_tierra,datos.fml,datos.gan,datos.vamo,datos.alianza,datos.aren,datos.pc,datos.pd,datos.dsv]      
+        
         for i in range(len(datos_a_sumar)):
-            suma=datos.i+datos_a_sumar[i]
+            suma=datos_a_sumar[i]+datos2[i]
             finales.append(suma)
 
-       
-        
+
         Cuestionario_temporal.objects.all().delete()
         
         p1=Datos_a_graficar(masculino=finales[0], femenino=finales[1], joven=finales[2],joven_adulto=finales[3], adulto=finales[4],adulto_mayor=finales[5],anciano=finales[6],no_estudio=finales[7],educacion_basica=finales[8],bachillerrato=finales[9],estudios_universitarios=finales[10],profesional=finales[11],desempleado=finales[12],negocio_propio=finales[13],empleado_publico=finales[14],empleado_privado=finales[15],trabajo_la_tierra=finales[16],fml=finales[17],gan=finales[18],vamo=finales[19],alianza=finales[20],aren=finales[21],pc=finales[22],pd=finales[23],dsv=finales[24])
