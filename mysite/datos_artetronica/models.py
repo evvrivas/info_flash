@@ -168,7 +168,7 @@ class Datos_a_graficar(models.Model):
 	dsv=models.IntegerField(blank=True,default=0)
 
 	def __str__(self):
-			dato=str(id)
+			self.dato="dato"
 			return  self.dato
 	class Admin:
 			list_display = ('masculino','femenino')	     
