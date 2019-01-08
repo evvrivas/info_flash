@@ -504,15 +504,12 @@ def calculo_de_datos():
         
         finales=[]
 
+        datos=Datos_a_graficar.objects.order_by('-id')[0]
+        for i in range(len(datos_a_sumar)):
+            suma=datos.i+datos_a_sumar[i]
+            finales.append(suma)
 
-
-        datos=Datos_a_graficar.objects.order_by('-id')[0]            
-        finales=[]    
-        x=0        
-        for i in datos:
-                    suma=datos_a_sumar[x]+i
-                    x=x+1
-                    finales.append(suma)
+       
         
         Cuestionario_temporal.objects.all().delete()
         
