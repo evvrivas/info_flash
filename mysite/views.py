@@ -581,4 +581,40 @@ def calculo_de_datos():
 
 
 
+def datos_generales(request):
+    datos=Datos_a_graficar.objects.order_by('-id')[0]
+    aa=datos.aren+datos.pc+datos.pd+datos.dsv
+    datos2=[datos.masculino, datos.femenino, datos.joven, datos.joven_adulto,datos.adulto,datos.adulto_mayor,datos.anciano,datos.no_estudio,datos.educacion_basica,datos.bachillerrato,datos.estudios_universitarios,datos.profesional,datos.desempleado,datos.negocio_propio,datos.empleado_publico,datos.empleado_privado,datos.trabajo_la_tierra,datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv]      
+    
+    total=datos.masculino+datos.femenino
 
+    femenino=datos.femenino*100/total
+    masculino=100-femenino
+    
+    joven = datos.joven*100/total 
+    joven_adulto = datos.joven_adulto*100/total
+    adulto = datos.adulto*100/total
+    adulto_mayor = datos.adulto_mayor*100/total
+    anciano = datos.anciano*100/total
+
+    no_estudio = datos.no_estudio*100/total
+    educacion_basica = datos.educacion_basica*100/total
+    bachillerrato = datos.bachillerrato*100/total
+    estudios_universitarios = datos.estudios_universitarios*100/total
+    profesional = datos.profesional*100/total
+
+    desempleado = datos.desempleado*100/total
+    negocio_propio = datos.negocio_propio*100/total
+    empleado_publico = datos.empleado_publico*100/total
+    empleado_privado = datos.empleado_privado*100/total
+    trabajo_la_tierra = datos.trabajo_la_tierra*100/total
+
+    fml = datos.fml*100/total
+    gan = datos.gan*100/total
+    vamo = datos.vamo*100/total
+    aren = datos.aren*100/total
+    pc = datos.pc*100/total
+    pd = datos.pd*100/total
+    dsv = datos.dsv*100/total
+
+    return render(request,'datos_generales.html',locals())

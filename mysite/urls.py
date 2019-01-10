@@ -47,7 +47,11 @@ urlpatterns = [
     url(r'^$', principal),
 
     url(r'^us/$', us),   
-    url(r'^cues/$', cues),   
+    url(r'^cues/$', cues), 
+
+    url(r'^datos_generales/$', datos_generales),  
+
+    
 
  
        
