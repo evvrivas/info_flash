@@ -588,33 +588,33 @@ def datos_generales(request):
     
     total=datos.masculino+datos.femenino
 
-    femenino=datos.femenino*100/total
-    masculino=100-femenino
+    femenino=round(datos.femenino*100/total,2)
+    masculino=round(datos.masculino*100/total,2)
     
-    joven = datos.joven*100/total 
-    joven_adulto = datos.joven_adulto*100/total
-    adulto = datos.adulto*100/total
-    adulto_mayor = datos.adulto_mayor*100/total
-    anciano = datos.anciano*100/total
+    joven = round(datos.joven*100/total ,2)
+    joven_adulto = round(datos.joven_adulto*100/total,2)
+    adulto = round(datos.adulto*100/total,2)
+    adulto_mayor = round(datos.adulto_mayor*100/total,2)
+    anciano = round(datos.anciano*100/total,2)
 
-    no_estudio = datos.no_estudio*100/total
-    educacion_basica = datos.educacion_basica*100/total
-    bachillerrato = datos.bachillerrato*100/total
-    estudios_universitarios = datos.estudios_universitarios*100/total
-    profesional = datos.profesional*100/total
+    no_estudio = round(datos.no_estudio*100/total,2)
+    educacion_basica = round(datos.educacion_basica*100/total,2)
+    bachillerrato = round(datos.bachillerrato*100/total,2)
+    estudios_universitarios = round(datos.estudios_universitarios*100/total,2)
+    profesional = round(datos.profesional*100/total,2)
 
-    desempleado = datos.desempleado*100/total
-    negocio_propio = datos.negocio_propio*100/total
-    empleado_publico = datos.empleado_publico*100/total
-    empleado_privado = datos.empleado_privado*100/total
-    trabajo_la_tierra = datos.trabajo_la_tierra*100/total
+    desempleado = round(datos.desempleado*100/total,2)
+    negocio_propio = round(datos.negocio_propio*100/total,2)
+    empleado_publico = round(datos.empleado_publico*100/total,2)
+    empleado_privado = round(datos.empleado_privado*100/total,2)
+    trabajo_la_tierra = round(datos.trabajo_la_tierra*100/total,2)
 
-    fml = datos.fml*100/total
-    gan = datos.gan*100/total
-    vamo = datos.vamo*100/total
-    aren = datos.aren*100/total
-    pc = datos.pc*100/total
-    pd = datos.pd*100/total
-    dsv = datos.dsv*100/total
+    fml = round(datos.fml*100/total,2)
+    gan = round(datos.gan*100/total,2)
+    vamo = round(datos.vamo*100/total,2)
+    aren = round(datos.aren*100/total,2)
+    pc = round(datos.pc*100/total,2)
+    pd = round(datos.pd*100/total,2)
+    dsv = round(datos.dsv*100/total,2)
 
     return render(request,'datos_generales.html',locals())
