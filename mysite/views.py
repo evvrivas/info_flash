@@ -190,7 +190,7 @@ def datos_departamento(request,contra):
                 p2.save()
 
 
-    return render(request,'principal.html',locals())
+        return render(request,'principal.html',locals())
 
 
 
