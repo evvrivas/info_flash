@@ -352,11 +352,17 @@ def crear_usuario(request):
 def ingresar_datos_de_consulta(request):
     import os, sys
     departamentos=Departamentos.objects.all()
+    badera=0
 
     try:
-             colaborador=Colaboradores.objects.get(nombre_de_usuario=request.user.username)
-             if colaborador.estado_colaborador=="DE_ALTA":
+            colaboradorr=Colaboradores.objects.get(nombre_de_usuario=request.user.username)
+
+             
+            if colaboradorr.estado_colaborador=="DE_ALTA":
                 bandera=1
+            else:
+                bandera=0
+
 
     except:
             bandera=0  
