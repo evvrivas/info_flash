@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^accounts/login/$', login,{'template_name': 'login.html'}),
     url(r'^accounts/logout/$', logout),
     url(r'^informacion/$', informacion),
-    url(r'^datos_departamento/$', datos_departamento),
+    url(r'^datos_departamento/([^/]+)/$', datos_departamento),
 
     url(r'^crear_colaborador/$', crear_colaborador),
     url(r'^crear_usuario/$', crear_usuario),
@@ -49,8 +49,8 @@ urlpatterns = [
     url(r'^tabular_datos/$', tabular_datos),    
     url(r'^$', principal),
 
-    url(r'^us/$', us),   
-    url(r'^cues/$', cues), 
+    #url(r'^us/$', us),   
+    #url(r'^cues/$', cues), 
 
     url(r'^datos_generales/$', datos_generales),  
 

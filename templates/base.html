@@ -98,18 +98,18 @@
                {%  else  %}                                 
                    <li><a href="/accounts/login">Entrar </a></li>
                    <br>
-                   <li><a href="/crear_usuario">Registrarme</a></li>
+                  <li><a href="/crear_usuario">Registrarme</a></li>
                    <li><a href="/crear_colaborador">Colaborador</a></li>
+
                    
                    <br>
-               {% endif %}
-                 <br>
+               {% endif %}                 
                
-                 <li><a href="/datos_departamento">departamentos</a></li>
+           <!--      <li><a href="/datos_departamento">departamentos</a></li>
                  <li><a href="/us">un usuario</a></li>
                  <li><a href="/cues">cuestionario</a></li>
                   
-                   <li><a href="/admin">Administra</a></li>
+                   <li><a href="/admin">Administra</a></li>                 -->
             <!-- ###################################################################### 
        
                    <br>
@@ -130,16 +130,16 @@
                  
                     <li><a href="/poner_graficos_en_pantalla">Grafica Principal</a></li>
                     <li><a href="/datos_generales"> Datos generales</a></li>
+                    <li><a href="/tabular_datos"> Tabular datos</a></li>
 
+                    <!--<li><a href="/hacer_calculo_datos"> hacer_calculo_datos</a></li>
+                    -->
                     {%  for i in departamentos %}
-                       <li><a href="/departamental/{{i.nombre}}">{{i.nombre}}</a></li>
+                       <li><a href="/departamental/{{i.nombre}}">VER {{i.nombre}}</a></li>
                     {%  endfor %}   
 
-                    <li><a href=""> Cruse y analisis de resultados</a></li>
-                    
-                    <li><a href="/hacer_calculo_datos"> hacer_calculo_datos</a></li>
-                    <li><a href="/tabular_datos"> tabular_datos</a></li>
-                    
+                                        
+                                        
 
              </ul>
          </div>  
@@ -150,7 +150,7 @@
             data-toggle="dropdown">ayuda <span class="caret"></span></button>
                                
             <ul class="dropdown-menu" role="menu">
-                   <li><a href="">Manual de usuario</a></li> 
+                   
                    <li><a href=""></a></li>
             </ul>
         </div>  

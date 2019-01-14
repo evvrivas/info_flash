@@ -107,12 +107,36 @@ PREFERENCIA = (('FML', 'FML'),
 	   ('NS/NR', 'NS/NR'),
 	  	      )
 
+"""
+DEPARTAMENTOS= (('AHUACHAPAN', 'AHUACHAPAN'),
+	   ('SANTA_ANA', 'SANTA_ANA'),	   
+	   ('SONSONATE', 'SONSONATE'),
+	   ('CHALATENANGO', 'CHALATENANGO'),
+	   ('CUSCATLAN', 'CUSCATLAN'),
+	   ('SAN_SALVADOR', 'SAN_SALVADOR'),
+	   ('LA_LIBERTAD', 'LA_LIBERTAD'),
+	   ('SAN_VICENTE', 'SAN_VICENTE'),
+	   ('CABANAS', 'CABANAS'),
+	   ('LA_PAZ', 'LA_PAZ'),
+	   ('USULUTAN', 'USULUTAN'),
+	   ('SAN_MIGUEL', 'SAN_MIGUEL'),
+	   ('MORAZAN', 'MORAZAN'),
+	   ('SAN_VICENTE', 'SAN_VICENTE'),
+	   ('LA_UNION', 'LA_UNION'),
+	   
+	  	      )
+
+ """
+    
+     
 class Cuestionario_temporal(models.Model):
 		Sexo=models.CharField(max_length=2,choices=SEXO)
 		Rango_de_edad=models.CharField(max_length=30,choices=RANGO_EDAD)
 		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO)
 		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO)
+		Departamento_muestra=models.ForeignKey('Departamentos')
 		Ciudad_muestra=models.ForeignKey('Ciudades')
+		#Ciudad_muestra=models.CharField(max_length=50,choices=DEPARTAMENTOS)
 		Cual_es_su_preferencia=models.CharField(max_length=60,choices=PREFERENCIA)
 		Colaborador=models.CharField(max_length=60,blank=True)
 		fecha_ingreso = models.DateField(default=datetime.now,editable = False)
@@ -126,7 +150,9 @@ class Cuestionario_final(models.Model):
 		Rango_de_edad=models.CharField(max_length=30,choices=RANGO_EDAD)
 		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO)
 		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO)
+		Departamento_muestra=models.ForeignKey('Departamentos')
 		Ciudad_muestra=models.ForeignKey('Ciudades')
+		#Ciudad_muestra=models.CharField(max_length=50,choices=DEPARTAMENTOS)
 		Cual_es_su_preferencia=models.CharField(max_length=60,choices=PREFERENCIA)
 		Colaborador=models.CharField(max_length=60,blank=True)
 		fecha_ingreso = models.DateField(default=datetime.now,editable = False)
@@ -182,4 +208,3 @@ class Configuracion_sistema(models.Model):
 	     class Admin:
 		    		list_display = ('mensaje_bienvenida')
 
-		    		

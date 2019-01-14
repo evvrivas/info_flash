@@ -24,6 +24,13 @@ class CiudadesForm(ModelForm):#productos
 		model=Ciudades
 		exclude=["fecha_ingreso"]
 
+	def __init__(self,*args, **kwargs):
+		super(CiudadesForm, self).__init__(*args, **kwargs)
+		self.fields['departamento'].queryset=Departamentos.objects.all()
+		#self.fields['ccomercial'].queryset=Ccomercial.objects.filter(id_usuario=user)
+
+
+
 class Cuestionario_temporalForm(ModelForm):#productos
 	class Meta:			
 		model=Cuestionario_temporal
