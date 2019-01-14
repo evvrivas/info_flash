@@ -352,21 +352,16 @@ def crear_usuario(request):
 def ingresar_datos_de_consulta(request):
     import os, sys
     departamentos=Departamentos.objects.all()
-    badera=0
+    
 
-    try:
-
-            colaboradorr=Colaboradores.objects.filter(nombre_de_usuario=request.user.username).first()
+    
+    colaboradorr=Colaboradores.objects.filter(nombre_de_usuario=request.user.username).first()
                       
-             
-            if colaboradorr.estado_colaborador=="DE_ALTA":
+           
+    if colaboradorr.estado_colaborador=="DE_ALTA":
                 bandera=1
-            else:
+    else:
                 bandera=0
-
-
-    except:
-            bandera=0  
 
     if bandera==1:
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
