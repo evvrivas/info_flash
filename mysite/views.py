@@ -66,7 +66,7 @@ matplotlib.use("Agg")
 
 
 def datos_departamento(request,contra):
-        if contra=="ecopes"
+        if contra=="ecopes":
             depto="AHUACHAPAN"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
