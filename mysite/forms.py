@@ -18,6 +18,8 @@ class DepartamentosForm(ModelForm):#tiendas
 	class Meta:			
 		model=Departamentos
 		exclude=["fecha_ingreso"]
+
+
 		 
 class CiudadesForm(ModelForm):#productos
 	class Meta:			
@@ -34,12 +36,12 @@ class CiudadesForm(ModelForm):#productos
 class Cuestionario_temporalForm(ModelForm):#productos
 	class Meta:			
 		model=Cuestionario_temporal
-		exclude=["fecha_ingreso"]
+		exclude=["fecha_ingreso","Colaborador"]
 
 class Cuestionario_finalForm(ModelForm):#productos
 	class Meta:			
 		model=Cuestionario_final
-		exclude=["fecha_ingreso"]
+		exclude=["fecha_ingreso","Colaborador"]
 
 class Datos_a_graficarForm(ModelForm):#productos
 	class Meta:			

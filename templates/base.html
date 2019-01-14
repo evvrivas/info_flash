@@ -150,9 +150,15 @@
             data-toggle="dropdown">Colaborar <span class="caret"></span></button>
                                
             <ul class="dropdown-menu" role="menu">
+              {%  if user.is_authenticated and colaborador.privilegio == "DE_ALTA" %}  
+                         <li><a href="/ingresar_datos_de_consulta"> ingresar datos</a></li>
+                    {%  else  %}  
+                      <li><a href="/"> ingresar datos</a></li>
+                   {% endif %} 
+
                    
                    
-                   <li><a href="/ingresar_datos_de_consulta"> ingresar datos</a></li>
+                   
             </ul>
         </div>  
 </center>

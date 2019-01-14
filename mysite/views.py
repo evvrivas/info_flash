@@ -348,10 +348,20 @@ def crear_usuario(request):
         return render(request,'ingreso_de_datos.html',locals()) 
 
 
-
+@login_required
 def ingresar_datos_de_consulta(request):
-        import os, sys
-        departamentos=Departamentos.objects.all()
+    import os, sys
+    departamentos=Departamentos.objects.all()
+
+    try:
+             colaborador=Colaboradores.objects.get(nombre_de_usuario=request.user.username)
+             if colaborador.estado_colaborador=="DE_ALTA":
+                bandera=1
+
+    except:
+            bandera=0  
+
+    if bandera=1:
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
                     form = Cuestionario_temporalForm(request.POST,request.FILES)                      
@@ -370,9 +380,9 @@ def ingresar_datos_de_consulta(request):
                             #Departamento_muestraa=form.cleaned_data['Departamento_muestra'] 
                             Ciudad_muestraa=form.cleaned_data['Ciudad_muestra'] 
                             Cual_es_su_preferenciaa=form.cleaned_data['Cual_es_su_preferencia']
-                            Colaboradorr=form.cleaned_data['Colaborador']
-                            fecha_ingresoo=form.cleaned_data['fecha_ingreso'] 
-
+                            Colaboradorr=request.user.username
+                            #fecha_ingresoo=form.cleaned_data['fecha_ingreso'] 
+                            fecha_ingresoo=datetime.datetime.now()  
                             p1=Cuestionario_final(Sexo=Sexoo, Rango_de_edad=Rango_de_edadd, Grado_academico=Grado_academicoo , Estado_socioeconomico=Estado_socioeconomicoo , Ciudad_muestra=Ciudad_muestraa ,Cual_es_su_preferencia=Cual_es_su_preferenciaa ,Colaborador=Colaboradorr ,fecha_ingreso=fecha_ingresoo )
                             p1.save()                            
 
@@ -388,8 +398,8 @@ def ingresar_datos_de_consulta(request):
 
         connection.close()                  
         return render(request,'ingreso_de_datos.html',locals()) 
-
-
+    else:
+        return render(request,'principal.html',locals()) 
 
 def logout(request):
     auth.logout(request)    
@@ -408,23 +418,26 @@ def principal(request):
     
     return render(request,'principal.html',locals())
 
+@login_required
 def poner_graficos_en_pantalla(request):    
     departamentos=Departamentos.objects.all()
     return render(request,'analisis_de_datos_principal.html',locals())
 
+@login_required
 def hacer_calculo_datos(request):
     departamentos=Departamentos.objects.all()   
     calculo_de_datos()
     
     return render(request,'principal.html',locals())
 
-
+@login_required
 def tabular_datos(request):   
     departamentos=Departamentos.objects.all()
     datos=Datos_a_graficar.objects.all()   
     datos_crudos=Cuestionario_final.objects.all()
     return render(request,'tablas.html',locals())
 
+@login_required
 def grafico_de_barras_principal(request):
         departamentos=Departamentos.objects.all() 
 
@@ -479,6 +492,7 @@ def grafico_de_barras_principal(request):
         
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
+@login_required
 def grafico_principal(request):   
 
         datos=Datos_a_graficar.objects.all()
@@ -539,6 +553,7 @@ def grafico_principal(request):
         
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
+@login_required
 def calculo_de_datos():
    
         A=Cuestionario_temporal.objects.filter(Sexo="M").count()
@@ -597,7 +612,7 @@ def calculo_de_datos():
 
 
 
-
+@login_required
 def datos_generales(request):
     departamentos=Departamentos.objects.all()
     datos=Datos_a_graficar.objects.order_by('-id')[0]
@@ -644,7 +659,7 @@ def departamental(request,depto):
 
 
 
-
+@login_required
 def cruce_de_datos(request,depto):
         datos1=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="FML")).count()
         datos2=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="GAN")).count()
