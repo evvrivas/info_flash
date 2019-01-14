@@ -49,8 +49,8 @@ urlpatterns = [
     url(r'^tabular_datos/$', tabular_datos),    
     url(r'^$', principal),
 
-    #url(r'^us/$', us),   
-    #url(r'^cues/$', cues), 
+    url(r'^us/$', us),   
+    url(r'^cues/$', cues), 
 
     url(r'^datos_generales/$', datos_generales),  
 
