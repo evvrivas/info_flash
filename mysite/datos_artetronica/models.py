@@ -49,7 +49,7 @@ class Colaboradores(models.Model):
 		nombres=models.CharField(max_length=30)
 		apellidos=models.CharField(max_length=30)
 		telefono_whatsapp=models.CharField(max_length=30)
-		estado_colaborador=models.CharField(max_length=30,choices=ESTADO,default="'DE_BAJA")
+		estado_colaborador=models.CharField(max_length=30,choices=ESTADO,default="DE_BAJA")
 		fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 		def __str__(self):
 		   		return  self.nombre_de_usuario

@@ -355,8 +355,9 @@ def ingresar_datos_de_consulta(request):
     badera=0
 
     try:
-            colaboradorr=Colaboradores.objects.filter(nombre_de_usuario=request.user.username).first()
 
+            colaboradorr=Colaboradores.objects.filter(nombre_de_usuario=request.user.username).first()
+                      
              
             if colaboradorr.estado_colaborador=="DE_ALTA":
                 bandera=1
