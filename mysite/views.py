@@ -361,7 +361,7 @@ def ingresar_datos_de_consulta(request):
     except:
             bandera=0  
 
-    if bandera=1:
+    if bandera==1:
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
                     form = Cuestionario_temporalForm(request.POST,request.FILES)                      
