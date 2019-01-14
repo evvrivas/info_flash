@@ -104,6 +104,7 @@ PREFERENCIA = (('FML', 'FML'),
 	   ('PC', 'PC'),
 	   ('PD', 'PD'),
 	   ('DSV', 'DSV'),
+	   ('NS/NR', 'NS/NR'),
 	  	      )
 
 class Cuestionario_temporal(models.Model):
@@ -165,9 +166,20 @@ class Datos_a_graficar(models.Model):
 	pc=models.IntegerField(blank=True,default=0)
 	pd=models.IntegerField(blank=True,default=0)
 	dsv=models.IntegerField(blank=True,default=0)
+	ns_nr=models.IntegerField(blank=True,default=0)
 
 	def __str__(self):
 			self.dato="dato"
 			return  self.dato
 	class Admin:
 			list_display = ('masculino','femenino')	     
+
+class Configuracion_sistema(models.Model):
+	     mensaje_bienvenida=models.TextField(blank=True)	
+	     n_visitas=models.IntegerField(blank=True,default=0)            
+	     def __str__(self):
+		    		return  self.mensaje_bienvenida
+	     class Admin:
+		    		list_display = ('mensaje_bienvenida')
+
+		    		

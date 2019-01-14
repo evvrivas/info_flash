@@ -220,23 +220,23 @@ def cues(request):
     date=datetime.datetime.now()  
     
     
-    selec=['FML','GAN','VAMO','AREN','PC','PD','DSV']
+    selec=['FML','GAN','VAMO','AREN','PC','PD','DSV','NS/NR']
     
-    i=random.randrange(0, 7)
+    i=random.randrange(0, 8)
     p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     p1=Cuestionario_final(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
 
 
-    i=random.randrange(0, 7)
+    i=random.randrange(0, 8)
     p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     p1=Cuestionario_final(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     
     
-    i=random.randrange(0, 7)
+    i=random.randrange(0, 8)
     p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     p1=Cuestionario_final(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
@@ -244,28 +244,28 @@ def cues(request):
 
    
 
-    i=random.randrange(0, 7)
+    i=random.randrange(0, 8)
     p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     p1=Cuestionario_final(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
        
 
-    i=random.randrange(0, 7)
+    i=random.randrange(0, 8)
     p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     p1=Cuestionario_final(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
 
 
-    i=random.randrange(0, 7)
+    i=random.randrange(0, 8)
     p1=Cuestionario_temporal(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     p1=Cuestionario_final(Sexo="M",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
    
 
-    i=random.randrange(0, 7)
+    i=random.randrange(0, 8)
     p1=Cuestionario_temporal(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
     p1.save()
     p1=Cuestionario_final(Sexo="F",Rango_de_edad="JOVEN_ADULTO", Grado_academico="BACHILLERATO",Estado_socioeconomico="EMPLEADO_PUBLICO",  Ciudad_muestra=sity2,Cual_es_su_preferencia=selec[i],Colaborador="manuel",fecha_ingreso =date )
@@ -276,6 +276,9 @@ def cues(request):
 
      
 def crear_colaborador(request):
+
+        departamentos=Departamentos.objects.all()
+
         import os, sys
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
@@ -310,6 +313,7 @@ def crear_colaborador(request):
         return render(request,'ingreso_de_datos.html',locals()) 
 
 def crear_usuario(request):
+        departamentos=Departamentos.objects.all()
         import os, sys
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
@@ -347,6 +351,7 @@ def crear_usuario(request):
 
 def ingresar_datos_de_consulta(request):
         import os, sys
+        departamentos=Departamentos.objects.all()
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
                     form = Cuestionario_temporalForm(request.POST,request.FILES)                      
@@ -391,32 +396,41 @@ def logout(request):
     return HttpResponseRedirect("/")
 
 def informacion(request):
+  departamentos=Departamentos.objects.all()
   return render(request,'informacion.html',locals())
 
 
-def principal(request):    
+def principal(request):
+    departamentos=Departamentos.objects.all()
+    configurar=Configuracion_sistema.objects.all().first()
+    configurar.n_visitas+=1         
+    configurar.save()
     
     return render(request,'principal.html',locals())
 
 def poner_graficos_en_pantalla(request):    
+    departamentos=Departamentos.objects.all()
     return render(request,'analisis_de_datos_principal.html',locals())
 
-def hacer_calculo_datos(request):   
+def hacer_calculo_datos(request):
+    departamentos=Departamentos.objects.all()   
     calculo_de_datos()
     
     return render(request,'principal.html',locals())
 
 
 def tabular_datos(request):   
+    departamentos=Departamentos.objects.all()
     datos=Datos_a_graficar.objects.all()   
     datos_crudos=Cuestionario_final.objects.all()
     return render(request,'tablas.html',locals())
 
-def grafico_de_barras_principal(request): 
+def grafico_de_barras_principal(request):
+        departamentos=Departamentos.objects.all() 
 
         datos=Datos_a_graficar.objects.order_by('-id')[0]
         aa=datos.aren+datos.pc+datos.pd+datos.dsv
-        datos2=[datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv] 
+        datos2=[datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv,datos.ns_nr] 
        
         nombre=[]
         valor=[]
@@ -437,7 +451,7 @@ def grafico_de_barras_principal(request):
         bar_width = 0.45
         plt.bar(X, Y1, bar_width, color='b')
         
-        SIMBOLO_G=["fml","gan","vamo","alian","aren","pc","pd","dsv"]
+        SIMBOLO_G=["fml","gan","vamo","alian","aren","pc","pd","dsv","NS/NR"]
       
         z=0 
         for x, y in zip(X, Y1):
@@ -476,7 +490,8 @@ def grafico_principal(request):
         datosaren=datos.values_list("aren", flat=True)
         datospc=datos.values_list("pc", flat=True)
         datospd=datos.values_list("pd", flat=True)
-        datosdsv=datos.values_list("dsv", flat=True)                  
+        datosdsv=datos.values_list("dsv", flat=True)   
+        datosns_nr=datos.values_list("ns_nr", flat=True)                
 
         X= np.arange(len(datosfml))
         
@@ -487,7 +502,8 @@ def grafico_principal(request):
         Y5 = np.asarray(datosaren)
         Y6 = np.asarray(datospc)
         Y7 = np.asarray(datospd)        
-        Y8 = np.asarray(datosdsv)       
+        Y8 = np.asarray(datosdsv)   
+        Y9 = np.asarray(datosns_nr)    
                    
                
         #barh(pos,datos,align = 'center')
@@ -499,7 +515,8 @@ def grafico_principal(request):
         plt.plot(X,Y5, 'lightsteelblue')
         plt.plot(X,Y6, 'blue')
         plt.plot(X,Y7, 'green')
-        plt.plot(X,Y8, 'springgreen')   
+        plt.plot(X,Y8, 'springgreen') 
+        plt.plot(X,Y8, 'black')     
 
         plt.grid()     
           
@@ -553,10 +570,11 @@ def calculo_de_datos():
         W=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="PC").count()
         X=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="PD").count()
         Y=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="DSV").count()
+        Z=Cuestionario_temporal.objects.filter(Cual_es_su_preferencia="NS/NR").count()
 
         U=V+W+X+Y
         
-        datos_a_sumar=[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y]
+        datos_a_sumar=[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]
         
         finales=[]
 
@@ -566,7 +584,7 @@ def calculo_de_datos():
 
         aa=datos.aren+datos.pc+datos.pd+datos.dsv
 
-        datos2=[datos.masculino, datos.femenino, datos.joven, datos.joven_adulto,datos.adulto,datos.adulto_mayor,datos.anciano,datos.no_estudio,datos.educacion_basica,datos.bachillerrato,datos.estudios_universitarios,datos.profesional,datos.desempleado,datos.negocio_propio,datos.empleado_publico,datos.empleado_privado,datos.trabajo_la_tierra,datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv]      
+        datos2=[datos.masculino, datos.femenino, datos.joven, datos.joven_adulto,datos.adulto,datos.adulto_mayor,datos.anciano,datos.no_estudio,datos.educacion_basica,datos.bachillerrato,datos.estudios_universitarios,datos.profesional,datos.desempleado,datos.negocio_propio,datos.empleado_publico,datos.empleado_privado,datos.trabajo_la_tierra,datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv,datos.ns_nr]      
         
         for i in range(len(datos_a_sumar)):
             suma=datos_a_sumar[i]+datos2[i]
@@ -575,16 +593,17 @@ def calculo_de_datos():
 
         Cuestionario_temporal.objects.all().delete()
         
-        p1=Datos_a_graficar(masculino=finales[0], femenino=finales[1], joven=finales[2],joven_adulto=finales[3], adulto=finales[4],adulto_mayor=finales[5],anciano=finales[6],no_estudio=finales[7],educacion_basica=finales[8],bachillerrato=finales[9],estudios_universitarios=finales[10],profesional=finales[11],desempleado=finales[12],negocio_propio=finales[13],empleado_publico=finales[14],empleado_privado=finales[15],trabajo_la_tierra=finales[16],fml=finales[17],gan=finales[18],vamo=finales[19],alianza=finales[20],aren=finales[21],pc=finales[22],pd=finales[23],dsv=finales[24])
+        p1=Datos_a_graficar(masculino=finales[0], femenino=finales[1], joven=finales[2],joven_adulto=finales[3], adulto=finales[4],adulto_mayor=finales[5],anciano=finales[6],no_estudio=finales[7],educacion_basica=finales[8],bachillerrato=finales[9],estudios_universitarios=finales[10],profesional=finales[11],desempleado=finales[12],negocio_propio=finales[13],empleado_publico=finales[14],empleado_privado=finales[15],trabajo_la_tierra=finales[16],fml=finales[17],gan=finales[18],vamo=finales[19],alianza=finales[20],aren=finales[21],pc=finales[22],pd=finales[23],dsv=finales[24],ns_nr=finales[25])
         p1.save()
 
 
 
 
 def datos_generales(request):
+    departamentos=Departamentos.objects.all()
     datos=Datos_a_graficar.objects.order_by('-id')[0]
     aa=datos.aren+datos.pc+datos.pd+datos.dsv
-    datos2=[datos.masculino, datos.femenino, datos.joven, datos.joven_adulto,datos.adulto,datos.adulto_mayor,datos.anciano,datos.no_estudio,datos.educacion_basica,datos.bachillerrato,datos.estudios_universitarios,datos.profesional,datos.desempleado,datos.negocio_propio,datos.empleado_publico,datos.empleado_privado,datos.trabajo_la_tierra,datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv]      
+    datos2=[datos.masculino, datos.femenino, datos.joven, datos.joven_adulto,datos.adulto,datos.adulto_mayor,datos.anciano,datos.no_estudio,datos.educacion_basica,datos.bachillerrato,datos.estudios_universitarios,datos.profesional,datos.desempleado,datos.negocio_propio,datos.empleado_publico,datos.empleado_privado,datos.trabajo_la_tierra,datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv,datos.ns_nr]      
     
     total=datos.masculino+datos.femenino
 
@@ -616,5 +635,78 @@ def datos_generales(request):
     pc = round(datos.pc*100/total,2)
     pd = round(datos.pd*100/total,2)
     dsv = round(datos.dsv*100/total,2)
+    ns_nr = round(datos.dsv*100/total,2)
 
     return render(request,'datos_generales.html',locals())
+
+def departamental(request,depto):
+    departamentos=Departamentos.objects.all()
+    return render(request,'departamentales.html',locals())
+
+
+
+
+def cruce_de_datos(request,depto):
+        datos1=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="FML")).count()
+        datos2=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="GAN")).count()
+        datos3=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="VAMO")).count()
+        datos4=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="AREN")).count()
+        datos5=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="PC")).count()
+        datos6=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="PD")).count()
+        datos7=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="DSV")).count()
+        datos8=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="NS/NR")).count()
+    
+        aa=datos4+datos5+datos6+datos7
+        datos2=[datos1,datos2,datos3,aa,datos4,datos5,datos6,datos7,datos8] 
+       
+        nombre=[]
+        valor=[]
+
+
+        for i in datos2:
+            nombre.append(i)
+            
+
+        X= np.arange(len(datos2))
+        
+        Y1 = np.asarray(datos2)  
+                       
+               
+        f=plt.figure()
+       
+            
+        bar_width = 0.45
+        plt.bar(X, Y1, bar_width, color='b')
+        
+        SIMBOLO_G=["fml","gan","vamo","alian","aren","pc","pd","dsv","NS/NR"]
+      
+        z=0 
+        for x, y in zip(X, Y1):
+            plt.text(x, y+1 ,str(y)+ "\n"+SIMBOLO_G[z], ha='center', va= 'bottom')
+            z=z+1
+ 
+      
+        plt.xlabel(' participantes del estudio ')
+        plt.ylabel('preferencias ')
+        titulo=""
+        plt.title(titulo)
+        plt.xticks(())
+
+        subplots_adjust(left=0.21)
+      
+
+        buffer = io.BytesIO()
+        canvas = pylab.get_current_fig_manager().canvas
+        canvas.draw()        
+        graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+        graphIMG.save(buffer, "PNG")
+        pylab.close()  
+
+        f.clear()
+        
+        return HttpResponse (buffer.getvalue(), content_type="Image/png")
+
+
+
+
+        

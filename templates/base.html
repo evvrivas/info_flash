@@ -58,6 +58,10 @@
                           {%  if user.is_authenticated %}          
                                   <li> Bienvenido .!.{{ user.username }}  </li>
                           {% endif %}
+
+                          <a href="#">Vistas <span class="badge">{{configurar.n_visitas}}</span></a>
+
+                          <p>{{configurar.mensaje_bienvenida| linebreaks}}</p>
                         
                    </center>
 
@@ -125,7 +129,12 @@
              <ul class="dropdown-menu" role="menu">       
                  
                     <li><a href="/poner_graficos_en_pantalla">Grafica Principal</a></li>
-                    <li><a href="/datos_generales"> Datos generales</a></li>                
+                    <li><a href="/datos_generales"> Datos generales</a></li>
+
+                    {%  for i in departamentos %}
+                       <li><a href="/departamental/{{i.i.nombre}}">{{i.nombre}}</a></li>
+                    {%  endfor %}   
+
                     <li><a href=""> Cruse y analisis de resultados</a></li>
                     
                     <li><a href="/hacer_calculo_datos"> hacer_calculo_datos</a></li>

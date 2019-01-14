@@ -43,6 +43,9 @@ urlpatterns = [
     
     url(r'^grafico_de_barras_principal/$', grafico_de_barras_principal),
     url(r'^grafico_principal/$', grafico_principal),
+    url(r'^departamental/([^/]+)/$', departamental),
+    url(r'^cruce_de_datos/([^/]+)/$', cruce_de_datos),    
+
     url(r'^tabular_datos/$', tabular_datos),    
     url(r'^$', principal),
 

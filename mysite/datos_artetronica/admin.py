@@ -38,5 +38,9 @@ class RulesAdmin(admin.ModelAdmin):
 admin.site.register(Datos_a_graficar)
 class RulesAdmin(admin.ModelAdmin):
     form = Datos_a_graficarForm
+
+admin.site.register(Configuracion_sistema)
+class RulesAdmin(admin.ModelAdmin):
+    form = Configuracion_sistemaForm
  ##########################
    
