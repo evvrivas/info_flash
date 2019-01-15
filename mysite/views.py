@@ -343,7 +343,7 @@ def crear_usuario(request):
                             nomm=form.cleaned_data['nombres']
                             apelll=form.cleaned_data['apellidos'] 
 
-                            user2 = User.objects.filter(name=nombre_de_usuarioo).exists()
+                            user2 = User.objects.filter(username=nombre_de_usuarioo).exists()
 
                             if user2==False:    
                                     user = User.objects.create_user(username=nombre_de_usuarioo, password=contraa,email=correoo,first_name=nomm,last_name=apelll)
