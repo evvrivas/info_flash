@@ -299,7 +299,7 @@ def crear_colaborador(request):
                             apell=form.cleaned_data['apellidos']  
 
 
-                            user2 = User.objects.filter(name=nombre_de_usuarioo).exists()
+                            user2 = User.objects.filter(name=nombre_de_usuario).exists()
 
                             if user2==False:                           
 
