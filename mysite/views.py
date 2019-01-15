@@ -444,7 +444,7 @@ def poner_graficos_en_pantalla(request):
     departamentos=Departamentos.objects.all()
     return render(request,'analisis_de_datos_principal.html',locals())
 
-@login_required
+
 def hacer_calculo_datos(request):
     departamentos=Departamentos.objects.all()   
     calculo_de_datos()
@@ -574,7 +574,7 @@ def grafico_principal(request):
         
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
-@login_required
+
 def calculo_de_datos():
    
         A=Cuestionario_temporal.objects.filter(Sexo="M").count()
