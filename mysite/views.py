@@ -279,6 +279,8 @@ def crear_colaborador(request):
 
         departamentos=Departamentos.objects.all()
 
+
+
         import os, sys
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
@@ -294,16 +296,26 @@ def crear_colaborador(request):
                             contra = form.cleaned_data['pasword']
                             correo=form.cleaned_data['email']
                             nom=form.cleaned_data['nombres']
-                            apell=form.cleaned_data['apellidos']                            
+                            apell=form.cleaned_data['apellidos']  
 
-                            user = User.objects.create_user(username=nombre_de_usuario, password=contra,email=correo,first_name=nom,last_name=apell)
-                            user.save() 
 
-                            form.save() # Guardar los datos en la base de datos  print 
-                            #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
-                            connection.close()
-                            return render(request,'confirmar.html',locals())                  
-                
+                            user2 = User.objects.filter(name=nombre_de_usuarioo).exists()
+
+                            if user2==False:                           
+
+                                    user = User.objects.create_user(username=nombre_de_usuario, password=contra,email=correo,first_name=nom,last_name=apell)
+                                    user.save() 
+
+                                    form.save() # Guardar los datos en la base de datos  print 
+                                    #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
+                                    connection.close()
+                                    return render(request,'confirmar.html',locals())                  
+                            else:
+                                memnsaje="El usuario ya existe, intente con otro usuario"
+                                form=UsuariosForm()
+                                connection.close()                  
+                                return render(request,'ingreso_de_datos.html',locals())
+    
 
         else:            
                          
@@ -325,20 +337,27 @@ def crear_usuario(request):
                             temp.fecha_ingreso=datetime.datetime.now()  
                             temp.save() #  
 
-                            nombre_de_usuario = form.cleaned_data['nombre_de_usuario']
-                            contra = form.cleaned_data['pasword']
-                            correo=form.cleaned_data['email']
-                            nom=form.cleaned_data['nombres']
-                            apell=form.cleaned_data['apellidos']                            
+                            nombre_de_usuarioo = form.cleaned_data['nombre_de_usuario']
+                            contraa = form.cleaned_data['pasword']
+                            correoo=form.cleaned_data['email']
+                            nomm=form.cleaned_data['nombres']
+                            apelll=form.cleaned_data['apellidos'] 
 
-                            user = User.objects.create_user(username=nombre_de_usuario, password=contra,email=correo,first_name=nom,last_name=apell)
-                            user.save() 
+                            user2 = User.objects.filter(name=nombre_de_usuarioo).exists()
 
-                            form.save() # Guardar los datos en la base de datos  print 
-                            #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
-                            connection.close()
-                            return render(request,'confirmar.html',locals())                  
-                
+                            if user2==False:    
+                                    user = User.objects.create_user(username=nombre_de_usuarioo, password=contraa,email=correoo,first_name=nomm,last_name=apelll)
+                                    user.save() 
+
+                                    form.save() # Guardar los datos en la base de datos  print 
+                                    #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
+                                    connection.close()
+                                    return render(request,'confirmar.html',locals())                  
+                            else:
+                                memnsaje="El usuario ya existe, intente con otro usuario"
+                                form=UsuariosForm()
+                                connection.close()                  
+                                return render(request,'ingreso_de_datos.html',locals())
 
         else:            
                          
@@ -379,13 +398,13 @@ def ingresar_datos_de_consulta(request):
                             Rango_de_edadd= form.cleaned_data['Rango_de_edad']
                             Grado_academicoo=form.cleaned_data['Grado_academico']  
                             Estado_socioeconomicoo=form.cleaned_data['Estado_socioeconomico'] 
-                            #Departamento_muestraa=form.cleaned_data['Departamento_muestra'] 
+                            Departamento_muestraa=form.cleaned_data['Departamento_muestra'] 
                             Ciudad_muestraa=form.cleaned_data['Ciudad_muestra'] 
                             Cual_es_su_preferenciaa=form.cleaned_data['Cual_es_su_preferencia']
                             Colaboradorr=request.user.username
                             #fecha_ingresoo=form.cleaned_data['fecha_ingreso'] 
                             fecha_ingresoo=datetime.datetime.now()  
-                            p1=Cuestionario_final(Sexo=Sexoo, Rango_de_edad=Rango_de_edadd, Grado_academico=Grado_academicoo , Estado_socioeconomico=Estado_socioeconomicoo , Ciudad_muestra=Ciudad_muestraa ,Cual_es_su_preferencia=Cual_es_su_preferenciaa ,Colaborador=Colaboradorr ,fecha_ingreso=fecha_ingresoo )
+                            p1=Cuestionario_final(Sexo=Sexoo, Rango_de_edad=Rango_de_edadd, Grado_academico=Grado_academicoo , Estado_socioeconomico=Estado_socioeconomicoo ,Departamento_muestra=Departamento_muestraa, Ciudad_muestra=Ciudad_muestraa ,Cual_es_su_preferencia=Cual_es_su_preferenciaa ,Colaborador=Colaboradorr ,fecha_ingreso=fecha_ingresoo )
                             p1.save()                            
 
                             form.save() # Guardar los datos en la base de datos  print 

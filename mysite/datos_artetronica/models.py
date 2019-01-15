@@ -20,6 +20,7 @@ from sorl.thumbnail import ImageField
 PLANES=(   	('BASICO', 'BASICO'),
 			('INTERMEDIO', 'INTERMEDIO'),
 			('PRIVILEGIADA', 'PRIVILEGIADA'),
+			('GRATIS', 'GRATIS'),
 			('NINGUNO', 'NINGUN0'),
 		     )
 ESTADO=(   	('DE_BAJA', 'DE_BAJA'),
@@ -27,11 +28,12 @@ ESTADO=(   	('DE_BAJA', 'DE_BAJA'),
 		     )
 
 class Usuarios(models.Model):
-	     nombre_de_usuario=models.CharField(max_length=20)
+	     nombre_de_usuario=models.CharField(max_length=20,unique=True)
 	     pasword=models.CharField(max_length=4)
 	     email = models.EmailField(blank=True)
 	     nombres=models.CharField(max_length=30)
 	     apellidos=models.CharField(max_length=30)
+	     telefono_whatsapp=models.CharField(max_length=30)
 	     plan_contratado=models.CharField(max_length=30,choices=PLANES,default="NINGUNO")
 	     estado_del_plan=models.CharField(max_length=30,choices=ESTADO,default="'DE_BAJA")
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
@@ -43,7 +45,7 @@ class Usuarios(models.Model):
 
 
 class Colaboradores(models.Model):		
-		nombre_de_usuario=models.CharField(max_length=20)
+		nombre_de_usuario=models.CharField(max_length=20,unique=True)
 		pasword=models.CharField(max_length=4)
 		email = models.EmailField(blank=True)
 		nombres=models.CharField(max_length=30)
