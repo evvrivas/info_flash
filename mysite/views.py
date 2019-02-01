@@ -70,7 +70,8 @@ def datos_departamento(request,contra):
             depto="AHUACHAPAN"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Ahuachapán","Apaneca","Atiquizaya","Concepción de Ataco","El Refugio","Guaymango","Jujutla","San Francisco Menéndez","San Lorenzo","San Pedro Puxtla","Turín","Tacuba"]
+            #ciudades=["Ahuachapán","Apaneca","Atiquizaya","Concepción de Ataco","El Refugio","Guaymango","Jujutla","San Francisco Menéndez","San Lorenzo","San Pedro Puxtla","Turín","Tacuba"]
+            ciudades=["Ahuachapán"]
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -79,7 +80,9 @@ def datos_departamento(request,contra):
             depto="SANTA ANA"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Candelaria de la Frontera","Chalchuapa","Coatepeque","El Congo","El Porvenir","Masahuat","Metapán","San Antonio Pajonal","San Sebastián Salitrillo","Santa Ana","Santa Rosa Guachipilín","Santiago de la Frontera","Texistepeque"]
+            #ciudades=["Candelaria de la Frontera","Chalchuapa","Coatepeque","El Congo","El Porvenir","Masahuat","Metapán","San Antonio Pajonal","San Sebastián Salitrillo","Santa Ana","Santa Rosa Guachipilín","Santiago de la Frontera","Texistepeque"]
+            ciudades=["Santa Ana"]
+            
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -88,7 +91,9 @@ def datos_departamento(request,contra):
             depto="SONSONATE"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Acajutla","Armenia","Caluco","Cuisnahuat","Izalco","Juayúa","Nahuizalco","Nahulingo","Salcoatitán","San Antonio del Monte","San Julián","Santa Catarina Masahuat","Santa Isabel Ishuatán","Santo Domingo Guzmán","Sonsonate","Sonzacate"]
+            #ciudades=["Acajutla","Armenia","Caluco","Cuisnahuat","Izalco","Juayúa","Nahuizalco","Nahulingo","Salcoatitán","San Antonio del Monte","San Julián","Santa Catarina Masahuat","Santa Isabel Ishuatán","Santo Domingo Guzmán","Sonsonate","Sonzacate"]
+            ciudades=["Sonsonate"]
+           
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -97,7 +102,9 @@ def datos_departamento(request,contra):
             depto="CHALATENANGO"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Agua Caliente","Arcatao","Azacualpa","Chalatenango","Comalapa","Citalá","Concepción Quezaltepeque","Dulce Nombre de María","El Carrizal","El Paraíso","La Laguna","La Palma","La Reina","Las Vueltas","Nueva Concepción","Nueva Trinidad","Nombre de Jesús","Ojos de Agua","Potonico","San Antonio de la Cruz","San Antonio Los Ranchos","San Fernando","San Francisco Lempa","San Francisco Morazán","San Ignacio","San Isidro Labrador","San José Cancasque","San José Las Flores","San Luis del Carmen","San Miguel de Mercedes","San Rafael","Santa Rita","Tejutla"]
+            #ciudades=["Agua Caliente","Arcatao","Azacualpa","Chalatenango","Comalapa","Citalá","Concepción Quezaltepeque","Dulce Nombre de María","El Carrizal","El Paraíso","La Laguna","La Palma","La Reina","Las Vueltas","Nueva Concepción","Nueva Trinidad","Nombre de Jesús","Ojos de Agua","Potonico","San Antonio de la Cruz","San Antonio Los Ranchos","San Fernando","San Francisco Lempa","San Francisco Morazán","San Ignacio","San Isidro Labrador","San José Cancasque","San José Las Flores","San Luis del Carmen","San Miguel de Mercedes","San Rafael","Santa Rita","Tejutla"]
+            ciudades=["Chalatenango"]
+          
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -106,7 +113,9 @@ def datos_departamento(request,contra):
             depto="CUSCATLAN"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Candelaria","Cojutepeque","El Carmen","El Rosario","Monte San Juan","Oratorio de Concepción","San Bartolomé Perulapía","San Cristóbal","San José Guayabal","San Pedro Perulapán","San Rafael Cedros","San Ramón","Santa Cruz Analquito","Santa Cruz Michapa","Suchitoto","Tenancingo"]
+            #ciudades=["Candelaria","Cojutepeque","El Carmen","El Rosario","Monte San Juan","Oratorio de Concepción","San Bartolomé Perulapía","San Cristóbal","San José Guayabal","San Pedro Perulapán","San Rafael Cedros","San Ramón","Santa Cruz Analquito","Santa Cruz Michapa","Suchitoto","Tenancingo"]
+            ciudades=["Cuscatlan"]
+           
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -115,7 +124,9 @@ def datos_departamento(request,contra):
             depto="SAN SALVADOR"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Aguilares","Apopa","Ayutuxtepeque","Cuscatancingo","Ciudad Delgado","El Paisnal","Guazapa","Ilopango","Mejicanos","Nejapa","Panchimalco","Rosario de Mora","San Marcos","San Martín","San Salvador","Santiago Texacuangos","Santo Tomás","Soyapango","Tonacatepeque"]
+            #ciudades=["Aguilares","Apopa","Ayutuxtepeque","Cuscatancingo","Ciudad Delgado","El Paisnal","Guazapa","Ilopango","Mejicanos","Nejapa","Panchimalco","Rosario de Mora","San Marcos","San Martín","San Salvador","Santiago Texacuangos","Santo Tomás","Soyapango","Tonacatepeque"]
+            ciudades=["San Salvador"]
+            
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -125,7 +136,9 @@ def datos_departamento(request,contra):
             depto="LA LIBERTAD"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Antiguo Cuscatlán","Chiltiupán","Ciudad Arce","Colón","Comasagua","Huizúcar","Jayaque","Jicalapa","La Libertad","Santa Tecla","Nuevo Cuscatlán","San Juan Opico","Quezaltepeque","Sacacoyo","San José Villanueva","San Matías","San Pablo Tacachico","Talnique","Tamanique","Teotepeque","Tepecoyo","Zaragoza"]
+            #ciudades=["Antiguo Cuscatlán","Chiltiupán","Ciudad Arce","Colón","Comasagua","Huizúcar","Jayaque","Jicalapa","La Libertad","Santa Tecla","Nuevo Cuscatlán","San Juan Opico","Quezaltepeque","Sacacoyo","San José Villanueva","San Matías","San Pablo Tacachico","Talnique","Tamanique","Teotepeque","Tepecoyo","Zaragoza"]
+            ciudades=["La Libertad"]
+           
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -134,7 +147,9 @@ def datos_departamento(request,contra):
             depto="SAN VICENTE"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Apastepeque","Guadalupe","San Cayetano Istepeque","San Esteban Catarina","San Ildefonso","San Lorenzo","San Sebastián","San Vicente","Santa Clara","Santo Domingo","Tecoluca","Tepetitán","Verapaz"]
+            #ciudades=["Apastepeque","Guadalupe","San Cayetano Istepeque","San Esteban Catarina","San Ildefonso","San Lorenzo","San Sebastián","San Vicente","Santa Clara","Santo Domingo","Tecoluca","Tepetitán","Verapaz"]
+            ciudades=["San Vicente"]
+           
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -142,7 +157,9 @@ def datos_departamento(request,contra):
             depto="CABANAS"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Cinquera","Dolores","Guacotecti","Ilobasco","Jutiapa","San Isidro","Sensuntepeque","Tejutepeque","Victoria"]
+            #ciudades=["Cinquera","Dolores","Guacotecti","Ilobasco","Jutiapa","San Isidro","Sensuntepeque","Tejutepeque","Victoria"]
+            ciudades=["Cabanas"]
+           
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -150,7 +167,9 @@ def datos_departamento(request,contra):
             depto="LA PAZ"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Cuyultitán","El Rosario","Jerusalén","Mercedes La Ceiba","Olocuilta","Paraíso de Osorio","San Antonio Masahuat","San Emigdio","San Francisco Chinameca","San Juan Nonualco","San Juan Talpa","San Juan Tepezontes","San Luis Talpa","San Luis La Herradura","San Miguel Tepezontes","San Pedro Masahuat","San Pedro Nonualco","San Rafael Obrajuelo","Santa María Ostuma","Santiago Nonualco","Tapalhuaca","Zacatecoluca"]
+            #ciudades=["Cuyultitán","El Rosario","Jerusalén","Mercedes La Ceiba","Olocuilta","Paraíso de Osorio","San Antonio Masahuat","San Emigdio","San Francisco Chinameca","San Juan Nonualco","San Juan Talpa","San Juan Tepezontes","San Luis Talpa","San Luis La Herradura","San Miguel Tepezontes","San Pedro Masahuat","San Pedro Nonualco","San Rafael Obrajuelo","Santa María Ostuma","Santiago Nonualco","Tapalhuaca","Zacatecoluca"]
+            ciudades=["La Paz"]
+           
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -158,7 +177,9 @@ def datos_departamento(request,contra):
             depto="USULUTAN"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Alegría","Berlín","California","Concepción Batres","El Triunfo","Ereguayquín","Estanzuelas","Jiquilisco","Jucuapa","Jucuarán","Mercedes Umaña","Nueva Granada","Ozatlán","Puerto El Triunfo","San Agustín","San Buenaventura","San Dionisio","San Francisco Javier","Santa Elena","Santa María","Santiago de María","Tecapán","Usulután"]
+            #ciudades=["Alegría","Berlín","California","Concepción Batres","El Triunfo","Ereguayquín","Estanzuelas","Jiquilisco","Jucuapa","Jucuarán","Mercedes Umaña","Nueva Granada","Ozatlán","Puerto El Triunfo","San Agustín","San Buenaventura","San Dionisio","San Francisco Javier","Santa Elena","Santa María","Santiago de María","Tecapán","Usulután"]
+            ciudades=["Usulután"]
+           
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -166,7 +187,9 @@ def datos_departamento(request,contra):
             depto="SAN MIGUEL"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Carolina","Chapeltique","Chinameca","Chirilagua","Ciudad Barrios","Comacarán","El Tránsito","Lolotique","Moncagua","Nueva Guadalupe","Nuevo Edén de San Juan","Quelepa","San Antonio del Mosco","San Gerardo","San Jorge","San Luis de la Reina","San Miguel","San Rafael Oriente","Sesori","Uluazapa"]
+            #ciudades=["Carolina","Chapeltique","Chinameca","Chirilagua","Ciudad Barrios","Comacarán","El Tránsito","Lolotique","Moncagua","Nueva Guadalupe","Nuevo Edén de San Juan","Quelepa","San Antonio del Mosco","San Gerardo","San Jorge","San Luis de la Reina","San Miguel","San Rafael Oriente","Sesori","Uluazapa"]
+            ciudades=["San Miguel"]
+           
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -175,7 +198,9 @@ def datos_departamento(request,contra):
             depto="MORAZAN"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Arambala","Cacaopera","Chilanga","Corinto","Delicias de Concepción","El Divisadero","El Rosario","Gualococti","Guatajiagua","Joateca","Jocoaitique","Jocoro","Lolotiquillo","Meanguera","Osicala","Perquín","San Carlos","San Fernando","San Francisco Gotera","San Isidro","San Simón","Sensembra","Sociedad","Torola","Yamabal","Yoloaiquín"]
+            #ciudades=["Arambala","Cacaopera","Chilanga","Corinto","Delicias de Concepción","El Divisadero","El Rosario","Gualococti","Guatajiagua","Joateca","Jocoaitique","Jocoro","Lolotiquillo","Meanguera","Osicala","Perquín","San Carlos","San Fernando","San Francisco Gotera","San Isidro","San Simón","Sensembra","Sociedad","Torola","Yamabal","Yoloaiquín"]
+            ciudades=["Morazan"]
+            
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -184,7 +209,9 @@ def datos_departamento(request,contra):
             depto="LA UNION"    
             p1=Departamentos(nombre=depto)   
             p1.save() 
-            ciudades=["Anamorós","Bolivar","Concepción de Oriente","Conchagua","El Carmen","El Sauce","Intipucá","La Unión","Lislique","Meanguera del Golfo","Nueva Esparta","Pasaquina","Polorós","San Alejo","San José","Santa Rosa de Lima","Yayantique","Yucuaiquín"]
+            #ciudades=["Anamorós","Bolivar","Concepción de Oriente","Conchagua","El Carmen","El Sauce","Intipucá","La Unión","Lislique","Meanguera del Golfo","Nueva Esparta","Pasaquina","Polorós","San Alejo","San José","Santa Rosa de Lima","Yayantique","Yucuaiquín"]
+            ciudades=["La Unión"]
+           
             for i in ciudades:
                 p2=Ciudades(departamento=p1,nombre=i)
                 p2.save()
@@ -470,7 +497,28 @@ def tabular_datos(request):
 def grafico_de_barras_principal(request):
         departamentos=Departamentos.objects.all() 
 
-        datos=Datos_a_graficar.objects.order_by('-id')[0]
+        usuarioo=Usuarios.objects.filter(nombre_de_usuario=request.user.username).first()
+        
+        N=Datos_a_graficar.objects.all().count()
+       
+        x30=N%3
+        x60=N%6
+
+        if usuarioo.plan_contratado="10" :
+            datos=Datos_a_graficar.objects.order_by('-id')[0]
+        
+        elif usuarioo.plan_contratado="30" and x30 != 0 :
+            datos=Datos_a_graficar.objects.order_by('-id')[1]
+
+        elif usuarioo.plan_contratado="60" and x60 != 0 :
+            datos=Datos_a_graficar.objects.order_by('-id')[1]
+
+
+        
+
+
+            
+
         aa=datos.aren+datos.pc+datos.pd+datos.dsv
 
         total=datos.fml+datos.gan+datos.vamo+datos.aren+datos.pc+datos.pd+datos.dsv+datos.ns_nr

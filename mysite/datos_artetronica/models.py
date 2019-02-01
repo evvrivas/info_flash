@@ -17,10 +17,10 @@ from sorl.thumbnail import ImageField
 
 
 
-PLANES=(   	('INDIVIDUAL $10', 'INDIVIDUAL'),
-			('BASICO $25', 'BASICO'),
-			('INTERMEDIO $50 ', 'INTERMEDIO'),
-			('PRIVILEGIADA $100', 'PRIVILEGIADA'),			
+PLANES=(   	
+			('BASICO c/60min $10', '60'),
+			('INTERMEDIO c/30min $17.50 ', '30'),
+			('PRIVILEGIADA c/10min $35', '10'),			
 			
 		     )
 ESTADO=(   	('DE_BAJA', 'DE_BAJA'),
