@@ -18,11 +18,14 @@
           	 <div class="col-md-12">
                	 <div class="thumbnail">                                    
 		             <div class="caption">
-        		        <center><div class="container">                             
-                               
-                               <img src="/grafico_de_barras_principal">
+        		        <center><div class="container">  
 
-                               
+                          {% if bandera="tendencias" %} 
+                               <img src="/grafico_de_tendencia_principal">          
+                         {%  else  %}                                 
+                                 <img src="/grafico_de_barras_principal">
+                         {% endif %}          
+                          
                         </div></center>
                         <br>
 

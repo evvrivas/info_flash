@@ -384,9 +384,9 @@ def ingresar_datos_de_consulta(request):
 
     if bandera==1:
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
-                             
                     form = Cuestionario_temporalForm(request.POST,request.FILES)                      
                     
+                             
                     if form.is_valid() :
                            
                             temp = form.save(commit=False)
@@ -440,7 +440,7 @@ def principal(request):
     return render(request,'principal.html',locals())
 
 @login_required
-def poner_graficos_en_pantalla(request):    
+def poner_graficos_en_pantalla(request,bandera):    
     departamentos=Departamentos.objects.all()
     return render(request,'analisis_de_datos_principal.html',locals())
 
@@ -464,7 +464,20 @@ def grafico_de_barras_principal(request):
 
         datos=Datos_a_graficar.objects.order_by('-id')[0]
         aa=datos.aren+datos.pc+datos.pd+datos.dsv
-        datos2=[datos.fml,datos.gan,datos.vamo,aa,datos.aren,datos.pc,datos.pd,datos.dsv,datos.ns_nr] 
+
+        total=datos.fml+datos.gan+datos.vamo+datos.aren+datos.pc+datos.pd+datos.dsv+datos.ns_nr
+       
+        fml=round(datos.fml*100/total,2)
+        gan=round(datos.gan*100/total,2)
+        vamo=round(datos.vamo*100/total,2)
+        aaa=round(aa*100/total,2)
+        aren=round(datos.aren*100/total,2)
+        pc=round(datos.pc*100/total,2)
+        pd=round(datos.pd*100/total,2)
+        dsv=round(datos.desempleado*100/total,2)
+        ns_nr=round(datos.desempleado*100/total,2)     
+
+        datos2=[fml,gan,vamo,aaa,aren,pc,pd,dsv,ns_nr] 
        
         nombre=[]
         valor=[]
@@ -514,7 +527,7 @@ def grafico_de_barras_principal(request):
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 @login_required
-def grafico_principal(request):   
+def grafico_de_tendencia_principal(request):   
 
         datos=Datos_a_graficar.objects.all()
 
@@ -526,7 +539,16 @@ def grafico_principal(request):
         datospc=datos.values_list("pc", flat=True)
         datospd=datos.values_list("pd", flat=True)
         datosdsv=datos.values_list("dsv", flat=True)   
-        datosns_nr=datos.values_list("ns_nr", flat=True)                
+        datosns_nr=datos.values_list("ns_nr", flat=True)  
+
+        total=datosfml[-1]+datosgan[-1]+datosvamo[-1]+datosalianza[-1]+datosns_nr[-1]
+
+        fml=round(datosfml[-1]*100/total,2)
+        gan=round(datosgan[-1]*100/total,2)
+        vamo=round(datosvamo[-1]*100/total,2)
+        aaa=round(datosalianza[-1]*100/total,2)       
+        ns_nr=round(datos.desempleado*100/total,2) 
+
 
         X= np.arange(len(datosfml))
         
@@ -546,22 +568,18 @@ def grafico_principal(request):
         plt.plot(X,Y1, 'red')
         plt.plot(X,Y2, 'aqua')
         plt.plot(X,Y3, 'darkblue')
-        plt.plot(X,Y4, 'gold')
-        plt.plot(X,Y5, 'lightsteelblue')
-        plt.plot(X,Y6, 'blue')
-        plt.plot(X,Y7, 'green')
-        plt.plot(X,Y8, 'springgreen') 
+        plt.plot(X,Y4, 'gray')   
+
         plt.plot(X,Y8, 'black')     
 
         plt.grid()     
           
-        plt.xlabel('Datos de prueba ')
+        plt.xlabel('Datos de analisis ')
         plt.ylabel('PREFERENCIAS')
-        titulo="Tendencia del las preferencias"
-        plt.title(titulo)       
-               
-        subplots_adjust(left=0.21)
-      
+        titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
+        plt.title(titulo)  
+                     
+        subplots_adjust(left=0.21)      
 
         buffer = io.BytesIO()
         canvas = pylab.get_current_fig_manager().canvas
@@ -613,7 +631,6 @@ def calculo_de_datos():
         datos_a_sumar=[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]
         
         finales=[]
-
 
         datos=Datos_a_graficar.objects.order_by('-id')[0]
 

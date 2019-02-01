@@ -37,12 +37,13 @@ urlpatterns = [
     url(r'^crear_usuario/$', crear_usuario),
     url(r'^ingresar_datos_de_consulta/$', ingresar_datos_de_consulta),
 
-    url(r'^poner_graficos_en_pantalla/$', poner_graficos_en_pantalla),
+    url(r'^poner_graficos_en_pantalla/([^/]+)/$', poner_graficos_en_pantalla),
+     
     url(r'^hacer_calculo_datos/$', hacer_calculo_datos),
     
     
     url(r'^grafico_de_barras_principal/$', grafico_de_barras_principal),
-    url(r'^grafico_principal/$', grafico_principal),
+    url(r'^grafico_de_tendencia_principal/$', grafico_de_tendencia_principal),
     url(r'^departamental/([^/]+)/$', departamental),
     url(r'^cruce_de_datos/([^/]+)/$', cruce_de_datos),    
 

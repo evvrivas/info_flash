@@ -36,7 +36,7 @@ class CiudadesForm(ModelForm):#productos
 class Cuestionario_temporalForm(ModelForm):#productos
 	class Meta:			
 		model=Cuestionario_temporal
-		exclude=["fecha_ingreso","Colaborador"]
+		exclude=["fecha_ingreso","Colaborador",]
 
 class Cuestionario_finalForm(ModelForm):#productos
 	class Meta:			

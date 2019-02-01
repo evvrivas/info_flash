@@ -17,11 +17,11 @@ from sorl.thumbnail import ImageField
 
 
 
-PLANES=(   	('BASICO', 'BASICO'),
-			('INTERMEDIO', 'INTERMEDIO'),
-			('PRIVILEGIADA', 'PRIVILEGIADA'),
-			('GRATIS', 'GRATIS'),
-			('NINGUNO', 'NINGUN0'),
+PLANES=(   	('INDIVIDUAL $10', 'INDIVIDUAL'),
+			('BASICO $25', 'BASICO'),
+			('INTERMEDIO $50 ', 'INTERMEDIO'),
+			('PRIVILEGIADA $100', 'PRIVILEGIADA'),			
+			
 		     )
 ESTADO=(   	('DE_BAJA', 'DE_BAJA'),
 			('DE_ALTA', 'DE_ALTA'),			
@@ -134,8 +134,8 @@ DEPARTAMENTOS= (('AHUACHAPAN', 'AHUACHAPAN'),
 class Cuestionario_temporal(models.Model):
 		Sexo=models.CharField(max_length=2,choices=SEXO)
 		Rango_de_edad=models.CharField(max_length=30,choices=RANGO_EDAD)
-		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO)
-		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO)
+		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO,blank=True,null=True)
+		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO,blank=True,null=True)
 		Departamento_muestra=models.ForeignKey('Departamentos')
 		Ciudad_muestra=models.ForeignKey('Ciudades')
 		#Ciudad_muestra=models.CharField(max_length=50,choices=DEPARTAMENTOS)
