@@ -67,7 +67,7 @@ class Departamentos(models.Model):
 
 class Ciudades(models.Model):	     
 	     departamento=models.ForeignKey('Departamentos',blank=True,null=True)
-	     nombre=models.CharField(max_length=60,blank=True)
+	     nombre=models.CharField(max_length=60,blank=True,default="NINGUNO")
 
 
 	     def __str__(self):
@@ -134,8 +134,8 @@ DEPARTAMENTOS= (('AHUACHAPAN', 'AHUACHAPAN'),
 class Cuestionario_temporal(models.Model):
 		Sexo=models.CharField(max_length=2,choices=SEXO)
 		Rango_de_edad=models.CharField(max_length=30,choices=RANGO_EDAD)
-		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO,blank=True,null=True)
-		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO,blank=True,null=True)
+		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO,default="NINGUNO")
+		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO,default="NINGUNO")
 		Departamento_muestra=models.ForeignKey('Departamentos')
 		Ciudad_muestra=models.ForeignKey('Ciudades')
 		#Ciudad_muestra=models.CharField(max_length=50,choices=DEPARTAMENTOS)

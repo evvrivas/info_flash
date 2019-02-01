@@ -547,7 +547,7 @@ def grafico_de_tendencia_principal(request):
         gan=round(datosgan[-1]*100/total,2)
         vamo=round(datosvamo[-1]*100/total,2)
         aaa=round(datosalianza[-1]*100/total,2)       
-        ns_nr=round(datos.desempleado*100/total,2) 
+        ns_nr=round(datosns_nr*100/total,2) 
 
 
         X= np.arange(len(datosfml))
@@ -709,7 +709,32 @@ def cruce_de_datos(request,depto):
         datos8=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="NS/NR")).count()
     
         aa=datos4+datos5+datos6+datos7
-        datos2=[datos1,datos2,datos3,aa,datos4,datos5,datos6,datos7,datos8] 
+        #datos2=[datos1,datos2,datos3,aa,datos4,datos5,datos6,datos7,datos8] 
+        
+        #datos1  fml
+        #datos2  gan
+        #datos3  vamo
+        #aa  aa
+        #datos4  aren
+        #datos5  pc
+        #datos6  pd
+        #datos7 dsv
+        #datos8 ns_nr
+
+
+        total=datos1+datos2+datos3+datos4
+       
+        fml=round(datos1*100/total,2)
+        gan=round(datos2*100/total,2)
+        vamo=round(datos3*100/total,2)
+        aaa=round(aa*100/total,2)
+        aren=round(datos4*100/total,2)
+        pc=round(datos5*100/total,2)
+        pd=round(datos6*100/total,2)
+        dsv=round(datos7*100/total,2)
+        ns_nr=round(datos8*100/total,2)     
+
+        datos2=[fml,gan,vamo,aaa,aren,pc,pd,dsv,ns_nr] 
        
         nombre=[]
         valor=[]
