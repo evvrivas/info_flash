@@ -32,18 +32,6 @@ class CiudadesForm(ModelForm):#productos
 		#self.fields['ccomercial'].queryset=Ccomercial.objects.filter(id_usuario=user)
 
 
-Sexo=models.CharField(max_length=2,choices=SEXO)
-		Rango_de_edad=models.CharField(max_length=30,choices=RANGO_EDAD)
-		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO)
-		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO)
-		Departamento_muestra=models.ForeignKey('Departamentos')
-		Ciudad_muestra=models.ForeignKey('Ciudades')
-		#Ciudad_muestra=models.CharField(max_length=50,choices=DEPARTAMENTOS)
-		Cual_es_su_preferencia=models.CharField(max_length=60,choices=PREFERENCIA)
-		Colaborador=models.CharField(max_length=60,blank=True)
-		fecha_ingreso = models.DateField(default=datetime.now,editable = False)
-
-
 class Cuestionario_temporalForm(ModelForm):#productos
 	class Meta:			
 		model=Cuestionario_temporal
