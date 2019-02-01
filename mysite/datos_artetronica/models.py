@@ -134,8 +134,8 @@ DEPARTAMENTOS= (('AHUACHAPAN', 'AHUACHAPAN'),
 class Cuestionario_temporal(models.Model):
 		Sexo=models.CharField(max_length=2,choices=SEXO)
 		Rango_de_edad=models.CharField(max_length=30,choices=RANGO_EDAD)
-		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO,default="NINGUNO")
-		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO,default="NINGUNO")
+		Grado_academico=models.CharField(max_length=30,choices=GRADO_ACADEMICO)
+		Estado_socioeconomico=models.CharField(max_length=30,choices=ESTADO_SOCIOECONOMICO)
 		Departamento_muestra=models.ForeignKey('Departamentos')
 		Ciudad_muestra=models.ForeignKey('Ciudades')
 		#Ciudad_muestra=models.CharField(max_length=50,choices=DEPARTAMENTOS)

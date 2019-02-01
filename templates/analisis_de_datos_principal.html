@@ -19,13 +19,24 @@
                	 <div class="thumbnail">                                    
 		             <div class="caption">
         		        <center><div class="container">  
+                       {% if usuarioo.estado_del_plan=="DE_ALTA %} 
 
-                          {% if bandera=="tendencias" %} 
-                               <img src="/grafico_de_tendencia_principal">          
-                         {%  else  %}                                 
-                                 <img src="/grafico_de_barras_principal">
-                         {% endif %}          
-                          
+                              {% if bandera=="tendencias" %} 
+                                   <img src="/grafico_de_tendencia_principal">          
+                             {%  else  %}                                 
+                                     <img src="/grafico_de_barras_principal">
+                             {% endif %}          
+                        
+                        {%  else  %}   
+
+                            <center> <h2 class="panel-title">NO SE A ACTIVADO SU CUENTA</h2></center>
+                             <center> <h2 class="panel-title">ENVIE WHATSAPP A 7821 8224</h2></center>
+                              <center> <h2 class="panel-title">PARA ACTIVAR SU CUENTA</h2></center>
+
+
+                        {% endif %} 
+
+
                         </div></center>
                         <br>
 

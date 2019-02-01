@@ -442,6 +442,14 @@ def principal(request):
 @login_required
 def poner_graficos_en_pantalla(request,bandera):    
     departamentos=Departamentos.objects.all()
+
+    usuarioo=Usuarios.objects.filter(nombre_de_usuario=request.user.username).first()
+                      
+           
+    if usuarioo.estado_del_plan!="DE_ALTA":
+                bandera=3
+
+
     return render(request,'analisis_de_datos_principal.html',locals())
 
 
@@ -693,6 +701,7 @@ def datos_generales(request):
 
 def departamental(request,depto):
     departamentos=Departamentos.objects.all()
+    usuarioo=Usuarios.objects.filter(nombre_de_usuario=request.user.username).first()
     return render(request,'departamentales.html',locals())
 
 

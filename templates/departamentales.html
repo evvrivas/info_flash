@@ -19,8 +19,19 @@
                	 <div class="thumbnail">                                    
 		             <div class="caption">
         		        <center><div class="container">
+
+
+                    {% if usuarioo.estado_del_plan=="DE_ALTA %} 
+
                                <img src="/cruce_de_datos/{{depto}}">
-                             
+                     {%  else  %}   
+
+                            <center> <h2 class="panel-title">NO SE A ACTIVADO SU CUENTA</h2></center>
+                             <center> <h2 class="panel-title">ENVIE WHATSAPP A 7821 8224</h2></center>
+                              <center> <h2 class="panel-title">PARA ACTIVAR SU CUENTA</h2></center>
+
+
+                        {% endif %}         
 
                                
                         </div></center>
