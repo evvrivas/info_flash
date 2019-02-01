@@ -503,8 +503,7 @@ def grafico_de_barras_principal(request):
        
         x30=N%3
         x60=N%6
-
-        
+       
         
         if usuarioo.plan_contratado=="30" and x30 != 0 :
             datos=Datos_a_graficar.objects.order_by('-id')[1]
@@ -599,12 +598,15 @@ def grafico_de_tendencia_principal(request):
         datosdsv=datos.values_list("dsv", flat=True)   
         datosns_nr=datos.values_list("ns_nr", flat=True)  
 
-        total=datosfml[-1]+datosgan[-1]+datosvamo[-1]+datosalianza[-1]+datosns_nr[-1]
+        i=len(datosfml)-1
 
-        fml=round(datosfml[-1]*100/total,2)
-        gan=round(datosgan[-1]*100/total,2)
-        vamo=round(datosvamo[-1]*100/total,2)
-        aaa=round(datosalianza[-1]*100/total,2)       
+
+        total=datosfml[i]+datosgan[i]+datosvamo[i]+datosalianza[i]+datosns_nr[i]
+
+        fml=round(datosfml[i]*100/total,2)
+        gan=round(datosgan[i]*100/total,2)
+        vamo=round(datosvamo[i]*100/total,2)
+        aaa=round(datosalianza[i]*100/total,2)       
         ns_nr=round(datosns_nr*100/total,2) 
 
 
