@@ -504,14 +504,16 @@ def grafico_de_barras_principal(request):
         x30=N%3
         x60=N%6
 
-        if usuarioo.plan_contratado="10" :
-            datos=Datos_a_graficar.objects.order_by('-id')[0]
         
-        elif usuarioo.plan_contratado="30" and x30 != 0 :
+        
+        if usuarioo.plan_contratado=="30" and x30 != 0 :
             datos=Datos_a_graficar.objects.order_by('-id')[1]
 
-        elif usuarioo.plan_contratado="60" and x60 != 0 :
+        elif usuarioo.plan_contratado=="60" and x60 != 0 :
             datos=Datos_a_graficar.objects.order_by('-id')[1]
+
+        else :
+            datos=Datos_a_graficar.objects.order_by('-id')[0]
 
 
         
