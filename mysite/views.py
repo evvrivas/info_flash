@@ -633,7 +633,7 @@ def grafico_de_tendencia_principal(request):
 
         plt.grid()     
           
-        plt.xlabel('Datos de analisis ')
+        plt.xlabel('rojo=fml    aqua=gan   azul=vam   gris=alianza ')
         plt.ylabel('PREFERENCIAS')
         titulo="Tendencia del las preferencias"
       

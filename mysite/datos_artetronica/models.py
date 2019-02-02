@@ -18,9 +18,9 @@ from sorl.thumbnail import ImageField
 
 
 PLANES=(   	
-			('BASICO c/60min $10', '60'),
-			('INTERMEDIO c/30min $17.50 ', '30'),
-			('PRIVILEGIADA c/10min $35', '10'),			
+			( '60','BASICO c/60min $10'),
+			( '30','INTERMEDIO c/30min $17.50 '),
+			( '10','PRIVILEGIADA c/10min $35'),			
 			
 		     )
 ESTADO=(   	('DE_BAJA', 'DE_BAJA'),
