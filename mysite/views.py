@@ -499,8 +499,8 @@ def grafico_de_barras_principal(request):
 
         usuarioo=Usuarios.objects.filter(nombre_de_usuario=request.user.username).first()
         
-              
-
+        datos=Datos_a_graficar.objects.all().order_by("-id")[0]    
+        
         aa=datos.aren+datos.pc+datos.pd+datos.dsv
 
         total=datos.fml+datos.gan+datos.vamo+datos.aren+datos.pc+datos.pd+datos.dsv+datos.ns_nr
@@ -567,6 +567,19 @@ def grafico_de_barras_principal(request):
 @login_required
 def grafico_de_tendencia_principal(request):   
 
+        
+        datos=Datos_a_graficar.objects.order_by('-id')[0]
+        aa=datos.aren+datos.pc+datos.pd+datos.dsv
+      
+        total=datos.masculino+datos.femenino        
+        pfml = round(datos.fml*100/total,2)
+        pgan = round(datos.gan*100/total,2)
+        pvamo = round(datos.vamo*100/total,2)
+        paa = round(datos.aa*100/total,2)        
+        pns_nr = round(datos.dsv*100/total,2)
+
+
+
         datos=Datos_a_graficar.objects.all()
 
         datosfml=datos.values_list("fml", flat=True)
@@ -579,16 +592,7 @@ def grafico_de_tendencia_principal(request):
         datosdsv=datos.values_list("dsv", flat=True)   
         datosns_nr=datos.values_list("ns_nr", flat=True)  
 
-        #i=datosfml.count()-1
-
-        #total=datosfml[i]+datosgan[i]+datosvamo[i]+datosalianza[i]+datosns_nr[i]
-
-        #fml=round(datosfml[i]*100/total,2)
-        #gan=round(datosgan[i]*100/total,2)
-        #vamo=round(datosvamo[i]*100/total,2)
-        #aaa=round(datosalianza[i]*100/total,2)       
-        #ns_nr=round(datosns_nr*100/total,2) 
-
+        
 
         X= np.arange(len(datosfml))
         
@@ -600,8 +604,9 @@ def grafico_de_tendencia_principal(request):
         Y6 = np.asarray(datospc)
         Y7 = np.asarray(datospd)        
         Y8 = np.asarray(datosdsv)   
-        Y9 = np.asarray(datosns_nr)    
-                   
+        Y9 = np.asarray(datosns_nr) 
+
+                          
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
@@ -613,8 +618,11 @@ def grafico_de_tendencia_principal(request):
         plt.plot(X,Y8, 'black')     
 
         plt.grid()     
-          
-        plt.xlabel('rojo=fml    aqua=gan   azul=vam   gris=alianza ')
+        
+
+        leyenda="rojo=fml "+str(pfml)+ "%        aqua=gan "+str(pgan)+   "%    azul=vam "+str(pvamo)+   "%    gris=alianza "+str(paa)+  "%    negro=NS/NR "+str(pns_nr)
+        plt.xlabel(leyenda)
+           
         plt.ylabel('PREFERENCIAS')
         titulo="Tendencia del las preferencias"
         plt.xticks(())
