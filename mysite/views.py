@@ -598,15 +598,15 @@ def grafico_de_tendencia_principal(request):
         datosdsv=datos.values_list("dsv", flat=True)   
         datosns_nr=datos.values_list("ns_nr", flat=True)  
 
-        i=datosfml.count()-1
+        #i=datosfml.count()-1
 
-        total=datosfml[i]+datosgan[i]+datosvamo[i]+datosalianza[i]+datosns_nr[i]
+        #total=datosfml[i]+datosgan[i]+datosvamo[i]+datosalianza[i]+datosns_nr[i]
 
-        fml=round(datosfml[i]*100/total,2)
-        gan=round(datosgan[i]*100/total,2)
-        vamo=round(datosvamo[i]*100/total,2)
-        aaa=round(datosalianza[i]*100/total,2)       
-        ns_nr=round(datosns_nr*100/total,2) 
+        #fml=round(datosfml[i]*100/total,2)
+        #gan=round(datosgan[i]*100/total,2)
+        #vamo=round(datosvamo[i]*100/total,2)
+        #aaa=round(datosalianza[i]*100/total,2)       
+        #ns_nr=round(datosns_nr*100/total,2) 
 
 
         X= np.arange(len(datosfml))
@@ -635,7 +635,9 @@ def grafico_de_tendencia_principal(request):
           
         plt.xlabel('Datos de analisis ')
         plt.ylabel('PREFERENCIAS')
-        titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
+        titulo="Tendencia del las preferencias"
+      
+        #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
         plt.title(titulo)  
                      
         subplots_adjust(left=0.21)      

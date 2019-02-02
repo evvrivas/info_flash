@@ -168,7 +168,7 @@ class Cuestionario_final(models.Model):
 		Colaborador=models.CharField(max_length=60,blank=True)
 		fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 		def __str__(self):
-			return  self.Cual_es_su_preferencia
+			return  self.Cual_es_su_preferencia,self.Colaborador
 		class Admin:
 			list_display = ('Ciudad_muestra','Sexo','Cual_es_su_preferencia','fecha_ingreso')	     
 
