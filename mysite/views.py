@@ -598,10 +598,9 @@ def grafico_de_tendencia_principal(request):
         datosdsv=datos.values_list("dsv", flat=True)   
         datosns_nr=datos.values_list("ns_nr", flat=True)  
 
-        i=len(datosfml)-1
+        i=datosfml.count()-1
 
-
-        total=datosfml[i]+datosgan[i]+datosvamo[i]+datosalianza[i]+datosns_nr[i]
+        total=datosfml.i+datosgan.i+datosvamo.i+datosalianza.i+datosns_nr.i
 
         fml=round(datosfml[i]*100/total,2)
         gan=round(datosgan[i]*100/total,2)
@@ -763,10 +762,12 @@ def cruce_de_datos(request,depto):
         datos1=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="FML")).count()
         datos2=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="GAN")).count()
         datos3=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="VAMO")).count()
+        
         datos4=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="AREN")).count()
         datos5=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="PC")).count()
         datos6=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="PD")).count()
         datos7=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="DSV")).count()
+        
         datos8=Cuestionario_final.objects.filter(Q(Ciudad_muestra__departamento__nombre=depto) & Q(Cual_es_su_preferencia__contains="NS/NR")).count()
     
         aa=datos4+datos5+datos6+datos7
@@ -783,7 +784,7 @@ def cruce_de_datos(request,depto):
         #datos8 ns_nr
 
 
-        total=datos1+datos2+datos3+datos4
+        total=datos1+datos2+datos3+datos8+aa
        
         fml=round(datos1*100/total,2)
         gan=round(datos2*100/total,2)
@@ -795,7 +796,7 @@ def cruce_de_datos(request,depto):
         dsv=round(datos7*100/total,2)
         ns_nr=round(datos8*100/total,2)     
 
-        datos2=[fml,gan,vamo,aaa,aren,pc,pd,dsv,ns_nr] 
+        datos2=[fml,gan,vamo,aaa, ns_nr,0,0, aren,pc,pd,dsv,] 
        
         nombre=[]
         valor=[]
@@ -816,7 +817,7 @@ def cruce_de_datos(request,depto):
         bar_width = 0.45
         plt.bar(X, Y1, bar_width, color='b')
         
-        SIMBOLO_G=["fml","gan","vamo","alian","aren","pc","pd","dsv","NS/NR"]
+        SIMBOLO_G=["fml","gan","vamo","alian",,"NS/NR",0,0,"aren","pc","pd","dsv"]
       
         z=0 
         for x, y in zip(X, Y1):
