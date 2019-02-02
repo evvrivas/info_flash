@@ -534,7 +534,7 @@ def grafico_de_barras_principal(request):
         dsv=round(datos.desempleado*100/total,2)
         ns_nr=round(datos.desempleado*100/total,2)     
 
-        datos2=[fml,gan,vamo,aaa,aren,pc,pd,dsv,ns_nr] 
+        datos2=[fml,gan,vamo,aaa,ns_nr,0,0,aren,pc,pd,dsv] 
        
         nombre=[]
         valor=[]
@@ -555,7 +555,7 @@ def grafico_de_barras_principal(request):
         bar_width = 0.45
         plt.bar(X, Y1, bar_width, color='b')
         
-        SIMBOLO_G=["fml","gan","vamo","alian","aren","pc","pd","dsv","NS/NR"]
+        SIMBOLO_G=["fml","gan","vamo","alian","NS/NR","-","-","aren","pc","pd","dsv"]
       
         z=0 
         for x, y in zip(X, Y1):
@@ -817,7 +817,7 @@ def cruce_de_datos(request,depto):
         bar_width = 0.45
         plt.bar(X, Y1, bar_width, color='b')
         
-        SIMBOLO_G=["fml","gan","vamo","alian",,"NS/NR",0,0,"aren","pc","pd","dsv"]
+        SIMBOLO_G=["fml","gan","vamo","alian","NS/NR","-","-","aren","pc","pd","dsv"]
       
         z=0 
         for x, y in zip(X, Y1):
