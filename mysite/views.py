@@ -512,8 +512,8 @@ def grafico_de_barras_principal(request):
         aren=round(datos.aren*100/total,2)
         pc=round(datos.pc*100/total,2)
         pd=round(datos.pd*100/total,2)
-        dsv=round(datos.desempleado*100/total,2)
-        ns_nr=round(datos.desempleado*100/total,2)     
+        dsv=round(datos.dsv*100/total,2)
+        ns_nr=round(datos.ns_nr*100/total,2)     
 
         datos2=[fml,gan,vamo,aaa,ns_nr,0,0,aren,pc,pd,dsv] 
        
@@ -575,7 +575,7 @@ def grafico_de_tendencia_principal(request):
         pfml = round(datos.fml*100/total,2)
         pgan = round(datos.gan*100/total,2)
         pvamo = round(datos.vamo*100/total,2)
-        paa = round(datos.aa*100/total,2)        
+        paa = round(aa*100/total,2)        
         pns_nr = round(datos.dsv*100/total,2)
 
 
@@ -606,7 +606,7 @@ def grafico_de_tendencia_principal(request):
         Y8 = np.asarray(datosdsv)   
         Y9 = np.asarray(datosns_nr) 
 
-                          
+
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
