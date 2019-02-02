@@ -499,26 +499,7 @@ def grafico_de_barras_principal(request):
 
         usuarioo=Usuarios.objects.filter(nombre_de_usuario=request.user.username).first()
         
-        N=Datos_a_graficar.objects.all().count()
-       
-        x30=N%3
-        x60=N%6
-       
-        
-        if usuarioo.plan_contratado=="30" and x30 != 0 :
-            datos=Datos_a_graficar.objects.order_by('-id')[1]
-
-        elif usuarioo.plan_contratado=="60" and x60 != 0 :
-            datos=Datos_a_graficar.objects.order_by('-id')[1]
-
-        else :
-            datos=Datos_a_graficar.objects.order_by('-id')[0]
-
-
-        
-
-
-            
+              
 
         aa=datos.aren+datos.pc+datos.pd+datos.dsv
 
@@ -636,6 +617,8 @@ def grafico_de_tendencia_principal(request):
         plt.xlabel('rojo=fml    aqua=gan   azul=vam   gris=alianza ')
         plt.ylabel('PREFERENCIAS')
         titulo="Tendencia del las preferencias"
+        plt.xticks(())
+        plt.yticks(())
       
         #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
         plt.title(titulo)  
