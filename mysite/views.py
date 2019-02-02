@@ -600,7 +600,7 @@ def grafico_de_tendencia_principal(request):
 
         i=datosfml.count()-1
 
-        total=datosfml.i+datosgan.i+datosvamo.i+datosalianza.i+datosns_nr.i
+        total=datosfml[i]+datosgan[i]+datosvamo[i]+datosalianza[i]+datosns_nr[i]
 
         fml=round(datosfml[i]*100/total,2)
         gan=round(datosgan[i]*100/total,2)
